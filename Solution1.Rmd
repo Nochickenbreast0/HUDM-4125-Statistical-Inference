@@ -1,0 +1,171 @@
+---
+title: "Solution 1"
+subtitle: HUDM 4125
+output:
+  pdf_document:
+    latex_engine: xelatex
+    keep_tex: yes
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**1.1-5**
+
+$(a) P(A) = 1/6.$  
+
+$(b) P(B) = 1 − P(A) = 5/6.$  
+
+$(c) P(A ∪ B) = P(A) + P(B) − P(A ∩ B) =1/6 + 5/6 + 0 = 1.$  
+$P(A ∩ B)=0$ because event A and event B cannot occur at the same time. They are mutually exclusive.
+
+\vspace{1em}
+
+**1.1-7**
+
+$P(A) = P(A ∪ B) − (1 − P(A ∩ B)) = .76 − .13 = .63$  
+It is easy to see this with a Venndiagram.
+
+\vspace{1em}
+
+**1.1-11**
+
+$(a) S = \left \{ 00,0,1,2,3. . . ..,34,35,36 \right \}.$  
+
+$(b) P(A) =\frac{2}{38}= \frac{1}{19}.$  
+
+$(c) P(B) =\frac{4}{38}= \frac{2}{19}.$  
+
+$(d) P(D) =\frac{18}{38}= \frac{9}{19}.$  
+There are 18 odd numbers and the possible outcomes are 38.
+
+\vspace{1em}
+
+**1.2-3**
+
+$(a) 26 ∗ 26 ∗ 10 ∗ 10 ∗ 10 ∗ 10 = 6, 760, 000.$  
+
+$(b) 26 ∗ 26 ∗ 26 ∗ 10 ∗ 10 ∗ 10 = 17, 576, 000.$
+
+\vspace{1em}
+
+**1.2-5**
+
+$(a) 4 ∗ 3 ∗ 2 ∗ 1 = 24.$  
+
+$(b) 4 ∗ 4 ∗ 4 ∗ 4 = 256$.
+
+\vspace{1em}
+
+**1.2-12**
+
+$(a)  0 = (1-1)^{n}= {\textstyle \sum_{r}^{n}}\binom{n}{r}1^{n-r}(-1)^{r}= {\textstyle \sum_{r=0}^{n}}(-1)^{r}\binom{n}{r}.$  
+
+$(b)  2^{n}  = (1+1)^{n}= {\textstyle \sum_{r}^{n}}\binom{n}{r}1^{n-r}1^{r}= {\textstyle \sum_{r=0}^{n}}1^{n}\binom{n}{r}.$  
+
+\vspace{1em}
+
+**1.3-1**
+
+$(a) P(B_{1} ) = \frac{5000}{1000000} =0.005.$  
+
+$(b) P(A_{1} ) = \frac{78515}{1000000} = 0.078515.$  
+
+$(c) P(A_{1}\mid B_{2}) = \frac{P(A_{1}\cap B_{2})}{P(B_{2}) } = \frac{0.073630}{0.995}=0.074.$  
+
+$(d) P(B_{1}\mid A_{1}) = \frac{P(B_{1}\cap A_{1})}{P(A_{1}) } = \frac{0.004885}{0.078515}=0.062.$  
+
+(e) Part c: the probability that people do not have HIV but tests positive is 0.074 among 1000000 randomly selected individuals;  
+
+Part d: that the probability that people, who test positive, have HIV is 0.062 among 1000000 randomly selected individuals.
+
+\vspace{1em}
+
+**1.3-9**
+
+$(a) P(match on 1st draw) = 1/4∗3/3∗2/2∗1/1$;  
+$P(match on 2nd draw) = 3/4∗1/3∗2/2∗1/1$; and so on.  
+
+$(b) P(A_{i}\cap A_{j} )= P(A_{i})P(A_{j} \mid A_{i})= \frac{3!}{4!}\frac{2!}{3!} =\frac{2!}{4!}.$  
+
+$(c) P(A_{i}\cap A_{j}\cap A_{k})=P(A_{i}) P(A_{j}\mid A_{i}) P(A_{k}\mid A_{i}\cap A_{j})= \frac{3!}{4!}\frac{2!}{3!}\frac{1!}{2!}  =\frac{1!}{4!}.$  
+
+$(d) P(A\cup B\cup C\cup D)=P(A) + P(B) + P(C) + P(D)− P(A \cap B) − P(A \cap C) − P(A \cap D) − P(B \cap C) − P(B \cap D) − P(C \cap D)+P(A \cap B \cap C) + P(A \cap B \cap D) + P(A \cap C \cap D) + P(B \cap C \cap D)−P(A \cap B \cap C \cap D)= 4P(A_{i}) − 6P(A_{i} \cap A_{j} ) + 4P(A_{i} \cap A_{j} \cap A_{k}) − P(A_{1} \cap A_{2} \cap A_{3} \cap A_{4})=\frac{4*3!}{4!}-\frac{6*2!}{4!}+\frac{4*1!}{4!}-\frac{1}{4!}=1-\frac{1}{2}+\frac{1}{3!}-\frac{1}{4!}.$  
+
+$(e) In this case, since the probabilities of all events are equal, and probabilities of all intersections are equal,  
+$P(A_{1} \cup  A_{2} \cup \dots  \cup A_{n})= \binom{n}{1}P(A_{1})+(-1)^{1}\binom{n}{2}P(A_{1}\cap A_{2})+(-1)^{2}\binom{n}{3}P(A_{1}\cap A_{2}\cap A_{3})+\dots + (-1)^{n-1}\binom{n}{n} P(A_{1} \cap  A_{2} \cap \dots  \cap A_{n}).$  
+
+(f) The series in parenthesis is the power series expansion of $e^{x}$, where X = −1.  
+
+
+\vspace{1em}
+
+**1.3-12**
+
+$(a) P(B_{1}) = 1/18, P(B_{5}) =\frac{17}{18}\frac{16}{17}\frac{15}{16}\frac{14}{15} \frac{1}{14}=\frac{1}{18},$ same for $P(B_{18}).$  
+
+$(b) (a) P(B_{1}) = 2/18, P(B_{5}) =\frac{16}{18}\frac{15}{17}\frac{14}{16}\frac{13}{15} \frac{2}{14}+\binom{4}{1}\frac{16}{18}\frac{15}{17}\frac{14}{16}\frac{2}{15} \frac{1}{14} =\frac{2}{18},$ same for $P(B_{18}).$  
+
+\vspace{1em}
+
+**1.4-3**
+
+(a) A and B are independent, $P(A \cap B) = P(A)P(B) = \frac{1}{6}.$  
+
+(b) A and B' are independent, $P(A \cap B') = P(A)P(B') = \frac{1}{4}(1-\frac{2}{3})=\frac{1}{12}.$  
+
+(c) A' and B' are independent, $P(A' \cap B') = P(A')P(B') = (1 -\frac{1}{4})  (1 - \frac{2}{3} ) = 1/4.$  
+
+(d) $P(A \cup B) = P(A)+P(B)-P(A \cap B) = \frac{1}{4}+ \frac{2}{3}- \frac{1}{6}= \frac{3}{4};$  
+$P[(A \cup B)'] = 1-P(A \cup B) = 1-\frac{3}{4}=\frac{1}{4}.$  
+
+\vspace{1em}
+
+**1.4-4(b)**
+
+$P(A' \cap  B) = P(B)P(A' \mid B) = P(B)[1 − P(A\mid B)]= P(B)[1 − P(A)]= P(B)P(A')$  
+
+\vspace{1em}
+
+**1.4-5**
+
+$P(A \cup  B) = P(A)+P(B)-P(A \cap B)$;  
+$P(A)P(B) = 0.8 × 0.5 = 0.4 = P(A ∩ B).$  
+So, A and B are independent.  
+
+\vspace{1em}
+
+**1.4-11**
+
+(a) A and B are mutually exclusive, $P(A \cap B) = 0.$  
+$P(A∩B)=P(A)P(B)=0.$;  
+At least one of P(A) or P(B) is zero if they want to be independent
+events.  
+
+(b) $A \subset  B, A \cap  B = A, P(A ∩ B) = P(A).$  
+A and B are independent only if P(A) = 0 or P(B) = 1.  
+
+\vspace{1em}
+
+**1.5-2**
+
+(a) P(G) = 0.4 × 0.85 + 0.6 × 0.75 = 0.79.  
+
+$(b) P(A\mid G) = \frac{P(A)P(G\mid A)}{P(G)}  = \frac{0.4×0.85}{0.79} = 0.43.$  
+
+\vspace{1em}
+
+**1.5-5**
+
+$P(C\mid D) = \frac{P(C)P(D\mid C)}{P(D)}  = \frac{0.06}{0.095} = 0.632.$  
+
+\vspace{1em}
+
+**1.5-9**
+
+$(a) P(D\mid P) = \frac{P(P)P(P\mid D)}{P(P)}  = \frac{0.0005*0.99}{0.0005*0.99+0.03*0.9995} = 0.016.$  
+
+(b) 1 - 0.016 = 0.984
+
