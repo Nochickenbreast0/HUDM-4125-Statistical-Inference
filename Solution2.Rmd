@@ -1,0 +1,247 @@
+---
+title: "Solution 2"
+subtitle: HUDM 4125
+output:
+  pdf_document:
+    latex_engine: xelatex
+    keep_tex: yes
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**2.1-3**
+
+(a) $\sum_{x=1}^{\infty}r^{x}=\frac{r}{1-r};$  
+$\sum_{x=1}^{\infty}\frac{1}{4} ^{x}=\frac{\frac{1}{4}}{1-\frac{1}{4}}=\frac{1}{3};$  
+$c = 3.$  
+
+(f) $\sum_{x=0}^{\infty}f(x)=c\sum_{x=0}^{\infty}\left ( \frac{1}{x+1}-\frac{1}{x+2} \right );$  
+Notice this is a telescoping series, where $\left ( 1-\frac{1}{2} \right)+\left ( \frac{1}{2}-\frac{1}{3} \right)+... +,$  
+The sum of the series is 1, c = 1.
+
+\vspace{1em}
+
+**2.1-7**
+
+$(a)$ 
+$P(X=1)=\frac{11}{36};$  
+$P(X=2)=\frac{9}{36}=\frac{1}{4};$  
+$P(X=3)=\frac{7}{36};$  
+$P(X=4)=\frac{5}{36};$  
+$P(X=5)=\frac{3}{36}=\frac{1}{12};$  
+$P(X=6)=\frac{1}{36}.$  
+$f(x)=\frac{13-2x}{36},x=1,2,...,6.$  
+
+$(c)$  
+
+$$
+P(Y = 0) = \frac{6}{36} = \frac{1}{6};
+$$
+
+$$
+P(Y = 1) = \frac{10}{36} = \frac{5}{18};
+$$
+
+$$
+P(Y = 2) = \frac{8}{36} = \frac{2}{9};
+$$
+
+$$
+P(Y = 3) = \frac{6}{36} = \frac{1}{6};
+$$
+
+$$
+P(Y = 4) = \frac{4}{36} = \frac{1}{9};
+$$
+
+$$
+P(Y = 5) = \frac{2}{36} = \frac{1}{18};
+$$
+
+$$
+P(Y = y) = \frac{2(6 - y)}{36}, \quad \text{for } y = 1, 2, 3, 4, 5,
+$$
+
+$$
+P(Y = 0) = \frac{6}{36} = \frac{1}{6}.
+$$
+\vspace{1em}
+
+**2.1-10**
+
+(a) $P(W=0)=\frac{1}{8};$  
+$P(W=1)=\frac{1}{8};$  
+$P(W=2)=\frac{1}{8};$  
+$P(W=3)=\frac{1}{8};$  
+$P(W=4)=\frac{1}{8};$  
+$P(W=5)=\frac{1}{8};$  
+$P(W=6)=\frac{1}{8};$  
+$P(W=7)=\frac{1}{8};$  
+$$
+f_W(w) =
+\begin{cases}
+\frac{1}{8}, & \text{if } w = 0, 1, 2, 3, 4, 5, 6, 7 \\
+0, & \text{otherwise}
+\end{cases}
+$$
+\vspace{1em}
+
+**2.2-2**
+
+$f(-1)=\frac{4}{9}$,  $f(0)=\frac{1}{9}$,  $f(1)=\frac{4}{9}$;  
+$E(X)=0,$  
+$E(X^{2})=\frac{8}{9},$  
+$E(3X^{2}-2X+4)=\frac{20}{3}.$ 
+
+\vspace{1em}
+
+**2.2-5**
+
+$f(1)=0.4$, $f(2)=0.3$, $f(3)=0.2$, $f(4)=0.1$,  
+$$
+P(X) =
+\begin{cases}
+200, & \text{if } X = 1 \\
+400, & \text{if } X = 2 \\
+500, & \text{if } X = 3 \\
+600, & \text{if } X = 4
+\end{cases}
+$$
+$E(P(X))=200*0.4+400*0.3+500*0.2+600*0.1=360$  
+
+\vspace{1em}
+
+**2.2-12**  
+
+(a) The average class size is:
+
+$$
+\frac{(16)(25) + (3)(100) + (1)(300)}{20} = 50
+$$
+
+(b)
+$$
+f(x) =
+\begin{cases}
+0.4, & \text{if } x = 25 \\
+0.3, & \text{if } x = 100 \\
+0.3, & \text{if } x = 300
+\end{cases}
+$$
+(c)
+$$
+E(X) = 25(0.4) + 100(0.3) + 300(0.3) = 130
+$$
+
+
+\vspace{1em}
+
+**2.3-1**
+
+$(d)\ E(X)=\frac{7}{3},$  
+$E(X^{2})=6,$  
+$Var(X)=\frac{5}{9},$  
+$\gamma_1 = \frac{E\left[(X - \mu)^3\right]}{\sigma^3}=\frac{-7\sqrt{5} }{25}.$  
+
+$(f)\ E(X)=0,$  
+$E(X^{2})=\frac{1}{2},$  
+$Var(X)=\frac{1}{2},$  
+$\gamma_1 =0.$ 
+
+\vspace{1em}
+
+**2.3-8**
+
+$E(X)=\frac{50}{16}=3.125,$  
+$E(X^{2})=\frac{170}{16}=10.625,$  
+$Var(X)=0.859375,$  
+$\sigma =\frac{\sqrt{55}}{8}=0.926.$  
+
+\vspace{1em}
+
+**2.3-11**
+
+$$
+f(x) =
+\begin{cases}
+\frac{2}{5}, & \text{if } x = 1 \\
+\frac{1}{5}, & \text{if } x = 2 \\
+\frac{2}{5}, & \text{if } x = 3 \\
+0, & \text{otherwise}
+\end{cases}
+$$
+
+$$
+M'(t) = \frac{2}{5} e^t + \frac{1}{5} \cdot 2 e^{2t} + \frac{2}{5} \cdot 3 e^{3t}
+$$
+
+
+$$
+M''(t) = \frac{2}{5} e^t + \frac{4}{5} e^{2t} + \frac{18}{5} e^{3t}
+$$
+$M'(0)=E[X]=2$,  
+$M''(0)=Var(X)+E[X]^{2}=\frac{24}{5}$  
+$Var(X)=4/5=0.8.$
+ 
+\vspace{1em}
+
+**2.3-17**
+
+(a) The pmf is:
+
+$$
+f(x) = \frac{(x - 1)}{2^x}, \quad x = 2, 3, \dots
+$$
+
+(c) The mean \( \mu \) and variance \( \sigma^2 \) are:
+
+$$
+\mu = 4, \quad \sigma^2 = 4
+$$
+(d) The probabilities are:
+
+- (i) \( P(X \leq 3) = \frac{1}{2} \)
+- (ii) \( P(X \geq 5) = \frac{5}{16} \)
+- (iii) \( P(X = 3) = \frac{1}{4} \)
+
+\vspace{1em}
+
+**2.4-1**
+
+$f(x)=\frac{7}{18}^{x} \frac{11}{18}^{1-x},x=0,1;$  
+$\mu =\frac{7}{18};$  
+$\sigma ^{2} =\frac{77}{324}.$
+
+\vspace{1em}
+
+**2.4-3**
+
+(a) $\frac{1}{5}^{2}\frac{4}{5}^{4}=0.0164;$  
+
+(b) $\frac{6!}{2!4!} \frac{1}{5}^{2}\frac{4}{5}^{4}=0.2458.$  
+
+\vspace{1em}
+
+**2.4-9**
+
+(a) b(20, 0.80);  
+
+(b) $\mu =16;$  
+$\sigma ^{2} =3.2;$  
+$\sigma =1.789.$  
+
+(c) (i) $P(X = 15) = 0.1746,$  
+(ii) $P(X > 15)=0.6296,$  
+(iii) $P(X \le 15)=0.3704.$
+
+\vspace{1em}
+
+**2.4-19**
+ 
+(a) \( b(1, 2/3) \), \( \mu = 2/3 \), \( \sigma^2 = 2/9 \), \( \sigma = \sqrt{2}/3 \);  
+
+(b) \( b(12, 0.75) \), \( \mu = 9 \), \( \sigma^2 = 2.25 \), \( \sigma = 1.5 \).
+

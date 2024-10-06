@@ -1,0 +1,70 @@
+---
+title: "Quiz 1"
+subtitle: HUDM 4125
+output:
+  pdf_document:
+    latex_engine: xelatex
+    keep_tex: yes
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**1**
+
+$\frac{P(A\cap B)}{0.2}+\frac{P(B\cap A)}{0.4}=0.75;$  
+
+$2P(A\cap B)+P(A\cap B)=0.3;$  
+
+$P(A\cap B)=0.1$  
+
+\vspace{1em}
+
+**2**
+
+Disjoint events: Events that cannot occur at the same time,i.e.,$A\cap B=\emptyset;$  
+
+Independent events: Events where the occurrence of one does not affect the probability of the other, i.e., $P(A\cap B)=P(A)P(B).$  
+
+(a)Unless at least one of P(A) or P(B) is 0;  
+
+(b)e.g. $A=\left \{ 1,2 \right \},B=\left \{3,4 \right \},C= \left \{2 \right \};$  
+$A\cap B=\emptyset, B\cap C=\emptyset,A\cap C\ne \emptyset$  
+
+(d)$P(A\cap C)$ may not be qual to $P(A)P(C)$.
+
+\vspace{1em}
+
+**3**
+
+(a) A and B are disjoint because it is impossible for all three vehicles to take different directions and for two of them to turn right at the same time. Since both events cannot happen together, they are disjoint.  
+
+(b) Each vehicle has 3 independent options (R, L, S),the total number of possible outcomes is $3^{3}=27$;  
+Choose the direction that the two vehicles will take. There are 3 choices (R, L, or S);  
+Then, choose two vehicles go in that direction.There are 3 ways to pick two vehicles out of the three.  
+Finally, the remaining vehicle must take a different direction. There are 2 remaining directions for the third vehicle.  
+$3*3*2=18$,  
+$P(C)=\frac{18}{27}=\frac{2}{3}.$  
+
+(c) $P(B\cap C)=P(B)=\frac{3}{27}=\frac{1}{9};$  
+
+(d) $A^{c}\cup B^{c}=(A\cap B)^{c}$, $A\cap C=\emptyset$, proved.
+
+\vspace{1em}
+
+**4**
+
+$A\cup (B \cap C)=(A\cup B)\cap (A\cup C)$ since $A\subset B$, $A\subset C$;  
+$A\cup (B \cap C)=(A\cup B)\cap (A\cup C)=B\cap C$;  
+$A\subset B$, $A\cup (B \cap C)=B\cap C$;  
+$A\cup (B \cap C)=A \cup B \cap C$.
+
+\vspace{1em}
+
+**5**
+
+P(A)=0.3, P(B)=0.2, P(C)=0.5,  
+$P(F\mid A)=0.03,P(F\mid B)=0.05,P(F\mid C)=0.02$,  
+$P(C\mid F)=\frac{P(C\cap F)}{P(F)}=\frac{P(F\mid C)P(C)}{P(F\mid A)P(A)+P(F\mid B)P(B)+P(F\mid C)P(C)} =0.345$
