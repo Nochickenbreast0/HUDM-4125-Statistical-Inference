@@ -1,0 +1,392 @@
+---
+title: "Solution 3"
+subtitle: HUDM 4125
+output:
+  pdf_document:
+    latex_engine: xelatex
+    keep_tex: yes
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**2.7-1**
+
+(a) \[
+P(3 \leq X \leq 5) = P(X = 3) + P(X = 4) + P(X = 5)
+\]
+
+\[
+P(X = 3) = \frac{4^3 e^{-4}}{3!} = \frac{64 e^{-4}}{6}, \quad P(X = 4) = \frac{4^4 e^{-4}}{4!} = \frac{256 e^{-4}}{24}, \quad P(X = 5) = \frac{4^5 e^{-4}}{5!} = \frac{1024 e^{-4}}{120}
+\]
+
+Thus,
+
+\[
+P(3 \leq X \leq 5) = e^{-4} \left( \frac{64}{6} + \frac{256}{24} + \frac{1024}{120} \right) = 0.547
+\]
+
+(b) \[
+P(X \geq 3) = 1 - P(X \leq 2)
+\]
+
+\[
+P(X \leq 2) = P(X = 0) + P(X = 1) + P(X = 2)
+\]
+
+\[
+P(X = 0) = e^{-4}, \quad P(X = 1) = 4e^{-4}, \quad P(X = 2) = 8e^{-4}
+\]
+
+\[
+P(X \leq 2) = e^{-4} \times 13
+\]
+
+Thus,
+
+\[
+P(X \geq 3) = 1 - 13e^{-4} = 0.7619
+\]
+
+(c) \( P(X \leq 3) \)
+
+\[
+P(X \leq 3) = P(X = 0) + P(X = 1) + P(X = 2) + P(X = 3)
+\]
+
+\[
+P(X \leq 3) = e^{-4} \left( 1 + 4 + 8 + \frac{64}{6} \right)
+\]
+
+Thus,
+
+\[
+P(X \leq 3) = e^{-4} \left( 13 + \frac{64}{6} \right) = 0.4335
+\]
+
+
+\vspace{1em}
+
+**2.7-4**  
+
+The probability mass function for a Poisson distribution is:
+
+\[
+P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}
+\]
+
+\[
+3P(X = 1) = P(X = 2)
+\]
+
+Substitute the Poisson PMF for \( P(X = 1) \) and \( P(X = 2) \):
+
+\[
+3 \times \frac{\lambda^1 e^{-\lambda}}{1!} = \frac{\lambda^2 e^{-\lambda}}{2!}
+\]
+
+\[
+3 \lambda e^{-\lambda} = \frac{\lambda^2 e^{-\lambda}}{2}
+\]
+
+\[
+3 \lambda = \frac{\lambda^2}{2}
+\]
+
+\[
+6 \lambda = \lambda^2
+\]
+
+\[
+\lambda^2 - 6 \lambda = 0
+\]
+
+\[
+\lambda(\lambda - 6) = 0
+\]
+
+Thus, \( \lambda = 6 \)
+
+\[
+P(X = 4) = \frac{6^4 e^{-6}}{4!} = \frac{1296 e^{-6}}{24}
+\]
+
+\[
+P(X = 4) \approx 0.1339
+\]
+
+\vspace{1em}
+
+**2.7-5** 
+ 
+\[
+\lambda = \frac{225}{150} = 1.5
+\]
+
+\[
+P(X \leq 1) = P(X = 0) + P(X = 1)
+\]
+
+\[
+P(X = 0) = \frac{1.5^0 e^{-1.5}}{0!} = e^{-1.5}
+\]
+
+\[
+P(X = 1) = \frac{1.5^1 e^{-1.5}}{1!} = 1.5 e^{-1.5}
+\]
+
+\[
+P(X \leq 1) = e^{-1.5} + 1.5 e^{-1.5} = 0.5578
+\]
+
+\vspace{1em}
+
+**2.7-13** 
+
+\[
+\frac{\lambda^2 e^{-\lambda}}{2!} = 4 \times \frac{\lambda^3 e^{-\lambda}}{3!}
+\]
+
+\[
+\frac{\lambda^2}{2} = 4 \times \frac{\lambda^3}{6}
+\]
+
+\[
+3 \lambda^2 = 4 \lambda^3
+\]
+
+\[
+\lambda = \frac{3}{4}
+\]
+
+\[
+E(X^2) = \lambda + \lambda^2
+\]
+
+\[
+E(X^2) = \frac{3}{4} + \left(\frac{3}{4}\right)^2 = 1.3125
+\]
+
+\vspace{1em}
+
+**3.1-2** 
+
+(a)  \[
+\int_0^1 c(x - x^2) \, dx = 1
+\]
+
+\[
+c = 6
+\]
+
+(b) \[
+P(0.3 < X < 0.6) = \int_{0.3}^{0.6} 6(x - x^2) \, dx \approx 0.4320
+\]
+
+\vspace{1em}
+
+**3.1-5** 
+
+(a) \[
+W = a + (b - a)Y
+\]
+
+The CDF of \( W \) is:
+
+\[
+F_W(w) = P(W \leq w) = P\left(Y \leq \frac{w - a}{b - a}\right)
+\]
+
+Since \( Y \sim U(0, 1) \), its CDF is:
+
+\[
+F_Y(y) = y
+\]
+
+Thus:
+
+\[
+F_W(w) = 
+\begin{cases}
+0, & w < a \\
+\frac{w - a}{b - a}, & a \leq w \leq b \\
+1, & w > b
+\end{cases}
+\]
+
+(b) The random variable \( W \) is uniformly distributed between \( a \) and \( b \):
+
+\[
+W \sim U(a, b)
+\]
+
+\vspace{1em}
+
+**3.1-9** 
+
+(i) \[
+P(0 \leq X \leq 1/2) = \int_0^{1/2} 2(1 - x) \, dx
+\]
+
+\[
+P(0 \leq X \leq 1/2) = 0.75
+\]
+
+(ii) \[
+P(1/4 \leq X \leq 3/4) = \int_{1/4}^{3/4} 2(1 - x) \, dx
+\]
+
+\[
+P(1/4 \leq X \leq 3/4) = 0.5
+\]
+
+(iii) \[
+P(X = 3/4) = 0
+\]
+
+(iv) \[
+P(X \geq 3/4) = \int_{3/4}^{1} 2(1 - x) \, dx
+\]
+
+\[
+P(X \geq 3/4) = 0.0625
+\]
+
+\vspace{1em}
+
+**3.2-1** 
+
+(a) 
+The pdf of \( X \) is:
+
+\[
+f(x) =  \frac{1}{3}e^{-\frac{1}{3}x}, \quad x \geq 0
+\]
+
+For an exponential distribution, the mean is \( \frac{1}{\lambda} \). Therefore:
+
+\[
+\text{Mean} = 3
+\]
+
+The variance of an exponential distribution is \( \frac{1}{\lambda^2} \). Therefore:
+
+\[
+\text{Variance} = 9
+\]
+
+(b) This is also the MGF for an exponential distribution with rate \( \lambda = 3 \).   
+
+The pdf of \( X \) is:
+
+\[
+f(x) = 3e^{-3x}, \quad x \geq 0
+\]
+
+\[
+\text{Mean} = 0.3333
+\]
+
+\[
+\text{Variance} = 0.1111
+\]
+
+\vspace{1em}
+
+**3.2-13** 
+
+(a) \[
+P(14.85 < X < 32.01) = F(32.01) - F(14.85)
+\]
+
+Using the chi-square cumulative distribution function (CDF):
+
+\[
+P(14.85 < X < 32.01) \approx F_{23}(32.01) - F_{23}(14.85) = 0.9 - 0.1 = 0.8
+\]
+
+Thus:
+
+\[
+P(14.85 < X < 32.01) = 0.8
+\]
+
+(b) We use the inverse CDF (quantile function):
+  
+\[
+a = \chi^2_{0.025}(23) = 11.69
+\]
+
+We use the quantile function:
+  
+\[
+b = \chi^2_{0.975}(23) = 38.08
+\]
+
+Thus:
+
+\[
+P(a < X < b) = P(11.69 < X < 38.08) = 0.95
+\]
+
+(c) For a chi-square distribution with \( k \) degrees of freedom:
+
+- The mean is \( k \), and
+- The variance is \( 2k \).
+
+Thus, for \( X \sim \chi^2(23) \):
+
+\[
+\text{Mean} = 23
+\]
+\[
+\text{Variance} = 46
+\]
+
+(d) \[
+\chi^2_{0.05}(23) = 35.17
+\]
+\[
+\chi^2_{0.95}(23) = 13.09
+\]
+
+\vspace{1em}
+
+**3.2-16** 
+
+\[
+P(T > 26.30) = 1 - F(26.30)
+\]
+
+Using R, we calculate:
+
+```{r}
+# Gamma distribution parameters
+k <- 8
+lambda <- 0.5
+
+# Calculate the probability
+prob <- 1 - pgamma(26.30, shape = k, rate = lambda)
+round(prob, 4)
+```
+
+\vspace{1em}
+
+**3.2-17** 
+```{r}
+# Chi-square distribution parameter
+df <- 4
+
+# Find P(X > 7.779)
+p_chisq <- 1 - pchisq(7.779, df = df)
+
+# Binomial distribution parameters
+n <- 15
+p <- p_chisq
+
+# Find P(Y <= 3)
+prob <- pbinom(3, size = n, prob = p)
+round(prob, 4)
+```
