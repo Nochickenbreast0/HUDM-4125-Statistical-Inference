@@ -1,0 +1,660 @@
+---
+title: "Solution4"
+subtitle: HUDM 4125
+output:
+  pdf_document:
+    latex_engine: xelatex
+    keep_tex: yes
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**3.3-1**
+
+(b) \[
+P(-0.97 \leq Z \leq 1.27) = P(Z \leq 1.27) - P(Z \leq -0.97) = 0.8980 - 0.1660 = 0.7320
+\]  
+
+(c) \[
+P(Z > -1.56) = 1 - P(Z \leq -1.56) = 1 - 0.0594 = 0.9406
+\]  
+
+(h) \[
+P(|Z| < 3) = P(-3 < Z < 3) = P(Z \leq 3) - P(Z \leq -3) = 0.9987 - 0.0013 = 0.9974
+\]
+
+\vspace{1em}
+
+**3.3-2**  
+
+(c) \[
+P(-2.31 \leq Z \leq -0.65) = P(Z \leq -0.65) - P(Z \leq -2.31) = 0.2578 - 0.0104 = 0.2474
+\]  
+
+(d) \[
+P(|Z| > 1.93) = P(Z > 1.93) + P(Z < -1.93) = (1 - 0.9732) + 0.0268 = 0.0536
+\]
+
+\vspace{1em}
+
+**3.3-4** 
+ 
+(a) \[
+z_{0.10} \approx 1.28
+\]  
+
+(c) \[
+-z_{0.0485} \approx -1.66
+\]
+
+\vspace{1em}
+
+**3.3-6** 
+
+(a) The Mean of \( X \)
+
+\[
+\mu = 166
+\]  
+
+(b) The Variance of \( X \)
+
+\[
+\sigma^2 = 400
+\]  
+
+(c) \( P(170 < X < 200) \)
+
+\[
+P(170 < X < 200) = P\left(0.2 < Z < 1.7\right) = 0.9554 - 0.5793 = 0.3761
+\]  
+
+(d) \( P(148 \leq X \leq 172) \)
+
+\[
+P(148 \leq X \leq 172) = P\left(-0.9 \leq Z \leq 0.3\right) = 0.6179 - 0.1841 = 0.4338
+\]
+
+```{r}
+# Calculate P(Z <= 0.3)
+p1 <- pnorm(0.3)
+
+# Calculate P(Z <= -0.9)
+p2 <- pnorm(-0.9)
+
+# Calculate P(-0.9 <= Z <= 0.3)
+probability <- p1 - p2
+probability
+```
+
+\vspace{1em}
+
+**3.3-11** 
+
+(a) Finding \( P(X > 22.07) \)
+
+\[
+P(X > 22.07) = P\left(Z > \frac{22.07 - 21.37}{0.4}\right) = P(Z > 1.75)
+\]
+\[
+= 1 - P(Z \leq 1.75) = 1 - 0.9599 = 0.0401
+\]  
+
+(b) \[
+   P(X < 20.857) = P\left(Z < \frac{20.857 - 21.37}{0.4}\right) = P(Z < -1.2825) \approx 0.10
+   \]  
+   
+   Using the binomial distribution \( Y \sim \text{Binomial}(n = 15, p = 0.10) \):
+   \[
+   P(Y \leq 2) = P(Y = 0) + P(Y = 1) + P(Y = 2)
+   \]
+   where
+   \[
+   P(Y = 0) \approx 0.2059, \quad P(Y = 1) \approx 0.3434, \quad P(Y = 2) \approx 0.2751
+   \]
+   \[
+   P(Y \leq 2) \approx 0.2059 + 0.3434 + 0.2751 = 0.8244
+   \]
+
+\vspace{1em}
+
+**3.3-15** 
+
+(a) \[
+   P(X < 12) = 0.01
+   \]
+
+ Standardize the inequality:  
+   \[
+   P\left(Z < \frac{12 - 12.1}{\sigma}\right) = 0.01
+   \]
+   \[
+   \frac{-0.1}{\sigma} = -2.33
+   \]  
+   \[
+   \sigma = \frac{0.1}{2.33} \approx 0.0429
+   \]
+
+So, \( \sigma \approx 0.0429 \).  
+
+(b) \[
+   P(X < 12) = 0.01
+   \]
+
+   Standardize the inequality:
+   \[
+   P\left(Z < \frac{12 - \mu}{0.05}\right) = 0.01
+   \]
+   \[
+   \frac{12 - \mu}{0.05} = -2.33
+   \]
+
+   \[
+   \mu = 12 + (2.33 \times 0.05) \approx 12.1165
+   \]
+
+So, \( \mu \approx 12.1165 \).
+
+\vspace{1em}
+
+**4.1-2** 
+
+(a) Sample Space of \( X \) and \( Y \)
+
+The sample space \( S \) is:
+\[
+S = \{(1,1), (1,2), (1,3), (1,4), (2,1), (2,2), (2,3), (2,4), (3,1), (3,2), (3,3), (3,4), (4,1), (4,2), (4,3), (4,4)\}
+\]  
+
+(b) Joint PMF of \( X \) and \( Y \)
+
+Since each outcome is equally likely, the joint PMF is:
+\[
+P(X = x, Y = y) = \frac{1}{16} \quad \text{for all } x, y \in \{1, 2, 3, 4\}
+\]  
+
+(c) Marginal PMF of \( X \)
+
+\[
+P(X = x) = \frac{1}{4} \quad \text{for } x = 1, 2, 3, 4
+\]  
+
+(d) Marginal PMF of \( Y \)
+
+\[
+P(Y = y) = \frac{1}{4} \quad \text{for } y = 1, 2, 3, 4
+\]  
+
+(e) Independence of \( X \) and \( Y \)
+
+Since \( P(X = x, Y = y) = P(X = x) \cdot P(Y = y) \) for all \( x \) and \( y \), \( X \) and \( Y \) are independent.
+
+\vspace{1em}
+
+**4.1-3** 
+
+Given the joint PMF:
+\[
+f(x, y) = \frac{x + y}{32}, \quad x = 1, 2, \quad y = 1, 2, 3, 4
+\]  
+
+The marginal PMF of \( X \) is:
+\[
+f_X(x) = \sum_{y=1}^{4} f(x, y)
+\]
+
+For \( x = 1 \):
+\[
+f_X(1) = \frac{1 + 1}{32} + \frac{1 + 2}{32} + \frac{1 + 3}{32} + \frac{1 + 4}{32} = \frac{14}{32} = \frac{7}{16}
+\]
+
+For \( x = 2 \):
+\[
+f_X(2) = \frac{2 + 1}{32} + \frac{2 + 2}{32} + \frac{2 + 3}{32} + \frac{2 + 4}{32} = \frac{18}{32} = \frac{9}{16}
+\]
+
+So,
+\[
+f_X(x) = \begin{cases} 
+      \frac{7}{16} & \text{if } x = 1 \\
+      \frac{9}{16} & \text{if } x = 2 
+   \end{cases}
+\]  
+
+(b) The marginal PMF of \( Y \) is:
+\[
+f_Y(y) = \sum_{x=1}^{2} f(x, y)
+\]
+
+For \( y = 1 \):
+\[
+f_Y(1) = \frac{1 + 1}{32} + \frac{2 + 1}{32} = \frac{5}{32}
+\]
+
+For \( y = 2 \):
+\[
+f_Y(2) = \frac{1 + 2}{32} + \frac{2 + 2}{32} = \frac{7}{32}
+\]
+
+For \( y = 3 \):
+\[
+f_Y(3) = \frac{1 + 3}{32} + \frac{2 + 3}{32} = \frac{9}{32}
+\]
+
+For \( y = 4 \):
+\[
+f_Y(4) = \frac{1 + 4}{32} + \frac{2 + 4}{32} = \frac{11}{32}
+\]
+
+So,
+\[
+f_Y(y) = \begin{cases} 
+      \frac{5}{32} & \text{if } y = 1 \\
+      \frac{7}{32} & \text{if } y = 2 \\
+      \frac{9}{32} & \text{if } y = 3 \\
+      \frac{11}{32} & \text{if } y = 4 
+   \end{cases}
+\]  
+
+(c) \[
+P(X > Y) = f(2,1) + f(2,2) + f(2,3) = \frac{3}{32} + \frac{4}{32} + \frac{5}{32} = \frac{12}{32} = \frac{3}{8}
+\]  
+
+(d) \( P(Y = 2X) \)
+\[
+P(Y = 2X) = f(1,2) + f(2,4) = \frac{3}{32} + \frac{6}{32} = \frac{9}{32}
+\]  
+
+(e) \( P(X + Y = 3) \)
+\[
+P(X + Y = 3) = f(1,2) + f(2,1) = \frac{3}{32} + \frac{3}{32} = \frac{6}{32} = \frac{3}{16}
+\]  
+
+(f) \( P(X \leq 3 - Y) \)
+\[
+P(X \leq 3 - Y) = f(1,1) + f(2,1) + f(1,2) = \frac{2}{32} + \frac{3}{32} + \frac{3}{32} = \frac{8}{32} = \frac{1}{4}
+\]  
+
+(g) Since \( f(x, y) \neq f_X(x) \cdot f_Y(y) \) for all \( x \) and \( y \), \( X \) and \( Y \) are dependent.  
+
+(h)Means and Variances of \( X \) and \( Y \)  
+
+   \[
+   E(X) = \sum_{x=1}^{2} x \cdot f_X(x) = 1 \cdot \frac{7}{16} + 2 \cdot \frac{9}{16} = \frac{25}{16} = 1.5625
+   \]
+
+   \[
+   E(Y) = \sum_{y=1}^{4} y \cdot f_Y(y) = 1 \cdot \frac{5}{32} + 2 \cdot \frac{7}{32} + 3 \cdot \frac{9}{32} + 4 \cdot \frac{11}{32} = 2.8125
+   \]  
+
+  \[
+E(X^2) = \sum_{x=1}^{2} x^2 \cdot f_X(x) = 1^2 \cdot \frac{7}{16} + 2^2 \cdot \frac{9}{16} = \frac{7 + 36}{16} = \frac{43}{16} = 2.6875
+\]
+
+
+\[
+\text{Var}(X) = E(X^2) - (E(X))^2 = 2.6875 - (1.5625)^2
+\]
+\[
+= 2.6875 - 2.4414 = 0.2461
+\]
+
+\[
+E(Y^2) = \sum_{y=1}^{4} y^2 \cdot f_Y(y) = \frac{145}{16} = 9.0625
+\]
+
+\[
+\text{Var}(Y) = E(Y^2) - (E(Y))^2 = 9.0625 - (2.8125)^2
+\]
+\[
+= \frac{295}{256} = 1.1523
+\]
+
+- **Mean of \( X \):** \( E(X) = 1.5625 \)
+- **Variance of \( X \):** \( \text{Var}(X) = 0.2461 \)
+- **Mean of \( Y \):** \( E(Y) = 2.1875 \)
+- **Variance of \( Y \):** \( \text{Var}(Y) = 4.2773 \)
+
+\vspace{1em}
+
+**4.1-5** 
+
+(a) Let \( x = 0, 1, 2, 3, 4 \) and \( y = 0, \ldots, x \).
+
+The marginal pmf of \( X \), \( f_X(x) \), is given by:
+\[
+f_X(x) = \frac{x + 1}{15}, \quad x = 0, 1, 2, 3, 4;
+\]
+
+The marginal pmf of \( Y \), \( f_Y(y) \), is given by:
+\[
+f_Y(y) = \frac{5 - y}{15}, \quad y = 0, 1, 2, 3, 4.
+\]  
+
+(d) Let \( x = 0, 1, 2, 3, 4 \) and \( y = 4 - x, \ldots, 4 \).
+
+The marginal pmf of \( X \), \( f_X(x) \), is given by:
+\[
+f_X(x) = \frac{x + 1}{15}, \quad x = 0, 1, 2, 3, 4;
+\]
+
+The marginal pmf of \( Y \), \( f_Y(y) \), is given by:
+\[
+f_Y(y) = \frac{y + 1}{15}, \quad y = 0, 1, 2, 3, 4.
+\]
+
+\vspace{1em}
+
+**4.1-6** 
+
+\[
+P(X_1 = 7, X_2 = 8, X_3 = 6, X_4 = 4) = \frac{n!}{x_1! \, x_2! \, x_3! \, x_4!} p_1^{x_1} p_2^{x_2} p_3^{x_3} p_4^{x_4}
+\]
+
+where:
+- \( n = 25 \),
+- \( x_1 = 7 \), \( x_2 = 8 \), \( x_3 = 6 \), \( x_4 = 4 \),
+- \( p_1 = 0.30 \), \( p_2 = 0.40 \), \( p_3 = 0.20 \), \( p_4 = 0.10 \).
+
+Substitute these values:
+
+\[
+P(X_1 = 7, X_2 = 8, X_3 = 6, X_4 = 4) = \frac{25!}{7! \, 8! \, 6! \, 4!} \times (0.30)^7 \times (0.40)^8 \times (0.20)^6 \times (0.10)^4 \approx 0.00405
+\]
+
+\vspace{1em}
+
+**4.2-1** 
+
+\[
+f(x, y) = \frac{x + y}{32}, \quad x = 1, 2, \quad y = 1, 2, 3, 4
+\]
+
+**Marginal PMF of \( X \):**
+   \[
+   f_X(x) = \sum_{y=1}^{4} f(x, y)
+   \]
+
+**Marginal PMF of \( Y \):**
+   \[
+   f_Y(y) = \sum_{x=1}^{2} f(x, y)
+   \]  
+   
+The mean (expected value) of \( X \) is:
+\[
+\mu_X = E(X) = \sum_{x=1}^{2} x \cdot f_X(x) = 1.5625
+\]
+
+The mean of \( Y \) is:
+\[
+\mu_Y = E(Y) = \sum_{y=1}^{4} y \cdot f_Y(y) = 2.8125
+\]  
+
+The variance of \( X \) is calculated as:
+\[
+\sigma_X^2 = E(X^2) - (E(X))^2 = 0.2461
+\]
+
+The variance of \( Y \) is:
+\[
+\sigma_Y^2 = E(Y^2) - (E(Y))^2 = 1.1523
+\]  
+
+The covariance between \( X \) and \( Y \) is:
+\[
+\text{Cov}(X, Y) = E(XY) - E(X)E(Y) = -0.0195
+\]  
+
+The correlation coefficient \( \rho \) is:
+\[
+\rho = \frac{\text{Cov}(X, Y)}{\sigma_X \sigma_Y} = -0.0367
+\]  
+
+Since the joint PMF \( f(x, y) \neq f_X(x) \cdot f_Y(y) \) for all \( x \) and \( y \), \( X \) and \( Y \) are **dependent**.
+
+\vspace{1em}
+
+**4.2-6** 
+
+\[
+f(x, y) = \frac{1}{6}, \quad 0 \leq x + y \leq 2, \quad x, y \text{ are nonnegative integers}
+\]  
+
+The support of \( (X, Y) \) is:
+\[
+(0, 0), (1, 0), (0, 1), (2, 0), (1, 1), (0, 2)
+\]
+
+**Marginal PMF of \( X \):**
+\[
+f_X(x) = \begin{cases} 
+      \frac{1}{2} & \text{if } x = 0 \\
+      \frac{1}{3} & \text{if } x = 1 \\
+      \frac{1}{6} & \text{if } x = 2 
+   \end{cases}
+\]
+
+**Marginal PMF of \( Y \):**
+\[
+f_Y(y) = \begin{cases} 
+      \frac{1}{2} & \text{if } y = 0 \\
+      \frac{1}{3} & \text{if } y = 1 \\
+      \frac{1}{6} & \text{if } y = 2 
+   \end{cases}
+\]
+
+- **Mean of \( X \):** \( \mu_X = 0.667 \)
+- **Mean of \( Y \):** \( \mu_Y = 0.667 \)
+- **Variance of \( X \):** \( \sigma_X^2 = 0.556 \)
+- **Variance of \( Y \):** \( \sigma_Y^2 = 0.556 \)
+- **Covariance of \( X \) and \( Y \):** \( \text{Cov}(X, Y) = -0.278 \)
+
+The correlation coefficient \( \rho \) is:
+\[
+\rho = \frac{\text{Cov}(X, Y)}{\sigma_X \sigma_Y} = -0.500
+\]
+
+The best-fitting line for predicting \( Y \) based on \( X \) is:
+\[
+Y = 1.0 - 0.5X
+\]
+
+\vspace{1em}
+
+**4.2-7** 
+
+(a) The correlation coefficient \( \rho \) is:
+  \[
+  \rho = 0.5
+  \]  
+
+(d) The correlation coefficient \( \rho \) is:
+  \[
+  \rho = -0.5
+  \]
+
+\vspace{1em}
+
+**4.2-10** 
+
+Given the joint PMF table for \( X \) (moisture content) and \( Y \) (impurity content):
+
+| \( Y \backslash X \) | 1     | 2     | 3     | 4     |
+|----------------------|-------|-------|-------|-------|
+| **2**                | 0.10  | 0.20  | 0.30  | 0.05  |
+| **1**                | 0.05  | 0.05  | 0.15  | 0.10  |
+
+(a) - **Marginal PMF of \( X \)**:
+  \[
+  f_X(x) = \begin{cases} 
+        0.15 & \text{if } x = 1 \\
+        0.25 & \text{if } x = 2 \\
+        0.45 & \text{if } x = 3 \\
+        0.15 & \text{if } x = 4 
+     \end{cases}
+  \]
+
+- **Marginal PMF of \( Y \)**:
+  \[
+  f_Y(y) = \begin{cases} 
+        0.35 & \text{if } y = 1 \\
+        0.65 & \text{if } y = 2 
+     \end{cases}
+  \]
+
+- **Mean of \( X \) (\( \mu_X \))**: \( 2.6 \)
+- **Mean of \( Y \) (\( \mu_Y \))**: \( 1.65 \)
+- **Variance of \( X \) (\( \sigma_X^2 \))**: \( 0.84 \)
+- **Variance of \( Y \) (\( \sigma_Y^2 \))**: \( 0.2275 \)
+
+(b) Covariance and Correlation Coefficient
+
+- **Covariance of \( X \) and \( Y \) (\( \text{Cov}(X, Y) \))**: \( -0.09 \)
+- **Correlation coefficient \( \rho \)**: \( -0.206 \)  
+
+(c) \[
+E(C) = 34.7
+\]
+
+\vspace{1em}
+
+**4.3-2**
+
+| \( (x, y) \) | \( f(x, y) \) |
+|--------------|---------------|
+| \( (1, 1) \) | \( \frac{3}{8} \) |
+| \( (2, 1) \) | \( \frac{1}{8} \) |
+| \( (1, 2) \) | \( \frac{1}{8} \) |
+| \( (2, 2) \) | \( \frac{3}{8} \) |
+
+- **Marginal PMF of \( X \)**:
+  \[
+  f_X(x) = \begin{cases} 
+      0.5 & \text{if } x = 1 \\
+      0.5 & \text{if } x = 2 
+   \end{cases}
+  \]
+
+- **Marginal PMF of \( Y \)**:
+  \[
+  f_Y(y) = \begin{cases} 
+      0.5 & \text{if } y = 1 \\
+      0.5 & \text{if } y = 2 
+   \end{cases}
+  \]
+
+- **Conditional PMF of \( X | Y \)**:
+  \[
+  f_{X|Y}(x | y) = \begin{cases} 
+      0.75 & \text{if } x = 1, y = 1 \\
+      0.25 & \text{if } x = 2, y = 1 \\
+      0.25 & \text{if } x = 1, y = 2 \\
+      0.75 & \text{if } x = 2, y = 2 
+   \end{cases}
+  \]
+
+- **Conditional PMF of \( Y | X \)**:
+  \[
+  f_{Y|X}(y | x) = \begin{cases} 
+      0.75 & \text{if } y = 1, x = 1 \\
+      0.25 & \text{if } y = 2, x = 1 \\
+      0.25 & \text{if } y = 1, x = 2 \\
+      0.75 & \text{if } y = 2, x = 2 
+   \end{cases}
+  \]
+
+- **Mean and Variance of \( X | Y = 1 \)**:
+  \[
+  E(X | Y = 1) = 1.25, \quad \text{Var}(X | Y = 1) = 0.1875
+  \]
+
+- **Mean and Variance of \( X | Y = 2 \)**:
+  \[
+  E(X | Y = 2) = 1.75, \quad \text{Var}(X | Y = 2) = 0.1875
+  \]
+
+- **Mean and Variance of \( Y | X = 1 \)**:
+  \[
+  E(Y | X = 1) = 1.25, \quad \text{Var}(Y | X = 1) = 0.1875
+  \]
+
+- **Mean and Variance of \( Y | X = 2 \)**:
+  \[
+  E(Y | X = 2) = 1.75, \quad \text{Var}(Y | X = 2) = 0.1875
+  \]  
+  
+\vspace{1em}
+
+**4.3-6**
+
+Given the joint probability table for \( X \) and \( Y \):
+
+| \( Y \backslash X \) | 100   | 500   | 1000  |
+|----------------------|-------|-------|-------|
+| **1000**             | 0.05  | 0.10  | 0.15  |
+| **500**              | 0.10  | 0.20  | 0.05  |
+| **100**              | 0.20  | 0.10  | 0.05  |
+
+(a) Probabilities
+
+ \( P(X = 500) = 0.4 \)
+ \( P(Y = 500) = 0.35 \)
+ \( P(Y = 500 | X = 500) = 0.5 \)
+ \( P(Y = 100 | X = 500) = 0.25 \)
+
+(b) Means and Variances
+
+- **Mean of \( X \) (\( \mu_X \))**: \( 485 \)
+- **Mean of \( Y \) (\( \mu_Y \))**: \( 510 \)
+- **Variance of \( X \) (\( \sigma_X^2 \))**: \( 118275 \)
+- **Variance of \( Y \) (\( \sigma_Y^2 \))**: \( 130900 \)
+
+(c) Conditional Means
+
+\( E(X | Y = 100) = 342.86 \)  
+\( E(Y | X = 500) = 525 \)
+
+(d) Covariance
+
+- **Covariance of \( X \) and \( Y \) (\( \text{Cov}(X, Y) \))**: \( 49650 \)
+
+(e) Correlation Coefficient
+
+- **Correlation coefficient \( \rho \)**: \( 0.399 \)
+
+\vspace{1em}
+
+**4.3-9** 
+
+(a) Marginal PMF \( f_X(x) \)
+\[
+f_X(x) = 0.125 \quad \text{for each } x = 0, 1, 2, \dots, 7
+\]
+
+(b) Conditional PMF \( h(y | x) = P(Y = y | X = x) \)
+- For \( X = 0 \): \( h(y | 0) = \begin{cases} 0.333 & \text{if } y = 0, 1, 2 \end{cases} \)
+- For \( X = 1 \): \( h(y | 1) = \begin{cases} 0.333 & \text{if } y = 1, 2, 3 \end{cases} \)
+- For \( X = 2 \): \( h(y | 2) = \begin{cases} 0.333 & \text{if } y = 2, 3, 4 \end{cases} \)
+- And similarly for each \( X = x \) up to \( X = 7 \).
+
+(c) Conditional Mean \( E(Y | X = x) \)
+\[
+E(Y | X = x) = x + 1
+\]
+
+(d) Conditional Variance \( \sigma_{Y|X}^2 \)
+\[
+\sigma_{Y|X}^2 = 0.667 \quad \text{for all } X = x
+\]
+
+(e) Marginal PMF \( f_Y(y) \)
+\[
+f_Y(y) = \begin{cases} 
+    0.0417 & \text{if } y = 0 \text{ or } 9 \\
+    0.0833 & \text{if } y = 1 \text{ or } 8 \\
+    0.125 & \text{if } y = 2, 3, 4, 5, 6, 7 
+\end{cases}
+\]
