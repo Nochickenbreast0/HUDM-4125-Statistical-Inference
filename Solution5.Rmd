@@ -1,0 +1,1173 @@
+---
+title: "Solution5"
+subtitle: HUDM 4125
+output:
+  pdf_document:
+    latex_engine: xelatex
+    keep_tex: yes
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**4.4-1**
+
+Let \( f(x, y) = \frac{3}{16}xy^2 \) for \( 0 \leq x \leq 2 \) and \( 0 \leq y \leq 2 \) be the joint pdf of \( X \) and \( Y \).
+
+(a) The marginal pdf of \( X \), \( f_X(x) \), is given by:
+\[
+f_X(x) = \int_{0}^{2} f(x, y) \, dy = \int_{0}^{2} \frac{3}{16} xy^2 \, dy.
+\]
+Evaluating this integral:
+\[
+f_X(x) = \frac{3}{16} x \int_{0}^{2} y^2 \, dy = \frac{3}{16} x \cdot \left[ \frac{y^3}{3} \right]_{0}^{2} = \frac{3}{16} x \cdot \frac{8}{3} = \frac{x}{2}.
+\]
+Thus, the marginal pdf of \( X \) is:
+\[
+f_X(x) = \frac{x}{2}, \quad 0 \leq x \leq 2.
+\]
+
+Similarly, the marginal pdf of \( Y \), \( f_Y(y) \), is given by:
+\[
+f_Y(y) = \int_{0}^{2} f(x, y) \, dx = \int_{0}^{2} \frac{3}{16} xy^2 \, dx.
+\]
+Evaluating this integral:
+\[
+f_Y(y) = \frac{3}{16} y^2 \int_{0}^{2} x \, dx = \frac{3}{16} y^2 \cdot \left[ \frac{x^2}{2} \right]_{0}^{2} = \frac{3}{16} y^2 \cdot 2 = \frac{3}{8} y^2.
+\]
+Thus, the marginal pdf of \( Y \) is:
+\[
+f_Y(y) = \frac{3}{8} y^2, \quad 0 \leq y \leq 2.
+\]  
+
+(b) To check if \( X \) and \( Y \) are independent, we verify if \( f(x, y) = f_X(x) f_Y(y) \).
+\[
+f_X(x) f_Y(y) = \frac{x}{2} \cdot \frac{3}{8} y^2 = \frac{3}{16} xy^2 = f(x, y).
+\]
+Since \( f(x, y) = f_X(x) f_Y(y) \), \( X \) and \( Y \) are independent.  
+
+(c) Mean and Variance of \( X \) and \( Y \)
+
+### Mean of \( X \):
+\[
+E(X) = \int_{0}^{2} x f_X(x) \, dx = \int_{0}^{2} x \cdot \frac{x}{2} \, dx = \int_{0}^{2} \frac{x^2}{2} \, dx = \frac{1}{2} \cdot \frac{x^3}{3} \Big|_{0}^{2} = \frac{1}{2} \cdot \frac{8}{3} = \frac{4}{3}.
+\]
+
+### Variance of \( X \):
+\[
+E(X^2) = \int_{0}^{2} x^2 f_X(x) \, dx = \int_{0}^{2} x^2 \cdot \frac{x}{2} \, dx = \int_{0}^{2} \frac{x^3}{2} \, dx = \frac{1}{2} \cdot \frac{x^4}{4} \Big|_{0}^{2} = \frac{1}{2} \cdot 4 = 2.
+\]
+\[
+\operatorname{Var}(X) = E(X^2) - (E(X))^2 = 2 - \left(\frac{4}{3}\right)^2 = 2 - \frac{16}{9} = \frac{2}{9}.
+\]
+
+### Mean of \( Y \):
+\[
+E(Y) = \int_{0}^{2} y f_Y(y) \, dy = \int_{0}^{2} y \cdot \frac{3}{8} y^2 \, dy = \int_{0}^{2} \frac{3}{8} y^3 \, dy = \frac{3}{8} \cdot \frac{y^4}{4} \Big|_{0}^{2} = \frac{3}{8} \cdot \frac{16}{4} = \frac{3}{2}.
+\]
+
+### Variance of \( Y \):
+\[
+E(Y^2) = \int_{0}^{2} y^2 f_Y(y) \, dy = \int_{0}^{2} y^2 \cdot \frac{3}{8} y^2 \, dy = \int_{0}^{2} \frac{3}{8} y^4 \, dy = \frac{3}{8} \cdot \frac{y^5}{5} \Big|_{0}^{2} = \frac{3}{8} \cdot \frac{32}{5} = \frac{12}{5}.
+\]
+\[
+\operatorname{Var}(Y) = E(Y^2) - (E(Y))^2 = \frac{12}{5} - \left(\frac{3}{2}\right)^2 = \frac{12}{5} - \frac{9}{4} = \frac{3}{20}.
+\]  
+
+(d) To find \( P(X \leq Y) \), we need to compute:
+\[
+P(X \leq Y) = \int_{0}^{2} \int_{0}^{y} f(x, y) \, dx \, dy = \int_{0}^{2} \int_{0}^{y} \frac{3}{16} xy^2 \, dx \, dy.
+\]
+Evaluating the inner integral with respect to \( x \):
+\[
+= \int_{0}^{2} \frac{3}{16} y^2 \cdot \frac{x^2}{2} \Big|_{0}^{y} \, dy = \int_{0}^{2} \frac{3}{16} y^2 \cdot \frac{y^2}{2} \, dy = \int_{0}^{2} \frac{3}{32} y^4 \, dy.
+\]
+Evaluating the outer integral with respect to \( y \):
+\[
+= \frac{3}{32} \cdot \frac{y^5}{5} \Big|_{0}^{2} = \frac{3}{32} \cdot \frac{32}{5} = \frac{3}{5}.
+\]
+Thus,
+\[
+P(X \leq Y) = \frac{3}{5}.
+\]
+
+\vspace{1em}
+
+**4.4-3**  
+
+Given:
+\[
+f(x, y) = 2e^{-x-y}, \quad 0 \leq x \leq y < \infty
+\]
+This is the joint pdf of \( X \) and \( Y \).  
+
+(a): Finding the Marginal PDFs \( f_X(x) \) and \( f_Y(y) \)
+
+### Marginal PDF of \( X \)
+The marginal pdf \( f_X(x) \) is obtained by integrating out \( y \) from \( f(x, y) \):
+\[
+f_X(x) = \int_{x}^{\infty} f(x, y) \, dy = \int_{x}^{\infty} 2e^{-x-y} \, dy.
+\]
+Since \( e^{-x} \) is constant with respect to \( y \), we can factor it out:
+\[
+f_X(x) = 2e^{-x} \int_{x}^{\infty} e^{-y} \, dy.
+\]
+Evaluating the integral:
+\[
+f_X(x) = 2e^{-x} \left[ -e^{-y} \right]_{x}^{\infty} = 2e^{-x} \cdot e^{-x} = 2e^{-2x}.
+\]
+Thus, the marginal pdf of \( X \) is:
+\[
+f_X(x) = 2e^{-2x}, \quad x > 0.
+\]
+
+### Marginal PDF of \( Y \)
+The marginal pdf \( f_Y(y) \) is obtained by integrating out \( x \) from \( f(x, y) \):
+\[
+f_Y(y) = \int_{0}^{y} f(x, y) \, dx = \int_{0}^{y} 2e^{-x-y} \, dx.
+\]
+Since \( e^{-y} \) is constant with respect to \( x \), we can factor it out:
+\[
+f_Y(y) = 2e^{-y} \int_{0}^{y} e^{-x} \, dx.
+\]
+Evaluating the integral:
+\[
+f_Y(y) = 2e^{-y} \left[ -e^{-x} \right]_{0}^{y} = 2e^{-y} \left(1 - e^{-y}\right).
+\]
+Thus, the marginal pdf of \( Y \) is:
+\[
+f_Y(y) = 2e^{-y} (1 - e^{-y}), \quad y > 0.
+\]
+
+(b): Checking for Independence of \( X \) and \( Y \)
+
+For \( X \) and \( Y \) to be independent, \( f(x, y) \) must equal \( f_X(x) f_Y(y) \).
+
+1. From part (a), we have:
+   \[
+   f(x, y) = 2e^{-x-y}.
+   \]
+2. The product \( f_X(x) f_Y(y) \) is:
+   \[
+   f_X(x) f_Y(y) = \left(2e^{-2x}\right) \cdot \left(2e^{-y} (1 - e^{-y})\right) = 4e^{-2x} e^{-y} (1 - e^{-y}).
+   \]
+
+Since \( f(x, y) \neq f_X(x) f_Y(y) \), \( X \) and \( Y \) are **not independent**.
+
+\vspace{1em}
+
+**4.4-4** 
+ 
+(a) The probability \( P(0 \leq X \leq 1/2) \) can be found by integrating the joint pdf over the region where \( X \) ranges from 0 to 1/2 and \( Y \) follows the constraints \( x^2 \leq y \leq 1 \).
+
+\[
+P(0 \leq X \leq 1/2) = \int_{0}^{1/2} \int_{x^2}^{1} \frac{3}{2} \, dy \, dx
+\]
+
+1. **Inner Integral with respect to \( y \):**
+   \[
+   \int_{x^2}^{1} \frac{3}{2} \, dy = \frac{3}{2} \left[ y \right]_{x^2}^{1} = \frac{3}{2} (1 - x^2)
+   \]
+
+2. **Outer Integral with respect to \( x \):**
+   \[
+   P(0 \leq X \leq 1/2) = \int_{0}^{1/2} \frac{3}{2} (1 - x^2) \, dx = \frac{3}{2} \int_{0}^{1/2} (1 - x^2) \, dx
+   \]
+   \[
+   = \frac{3}{2} \left[ x - \frac{x^3}{3} \right]_{0}^{1/2} = \frac{3}{2} \left( \frac{1}{2} - \frac{(1/2)^3}{3} \right)
+   \]
+   \[
+   = \frac{3}{2} \left( \frac{1}{2} - \frac{1}{24} \right) = \frac{3}{2} \cdot \frac{11}{24} = \frac{33}{48} = \frac{11}{16}
+   \]
+
+Thus,
+\[
+P(0 \leq X \leq 1/2) = \frac{11}{16}
+\]
+
+(b) \[
+   f_Y(y) = \int_{0}^{\sqrt{y}} f(x, y) \, dx = \int_{0}^{\sqrt{y}} \frac{3}{2} \, dx = \frac{3}{2} \sqrt{y}, \quad 0 \leq y \leq 1
+   \]  
+   \[
+   P\left(\frac{1}{2} \leq Y \leq 1\right) = \int_{1/2}^{1} f_Y(y) \, dy = \int_{1/2}^{1} \frac{3}{2} \sqrt{y} \, dy
+   \]  
+   \[
+   = \frac{3}{2} \int_{1/2}^{1} y^{1/2} \, dy = \frac{3}{2} \cdot \frac{2}{3} y^{3/2} \Big|_{1/2}^{1}
+   \]  
+   \[
+   = y^{3/2} \Big|_{1/2}^{1} = 1 - \left(\frac{1}{2}\right)^{3/2} = 1 - \frac{\sqrt{2}}{4}
+   \]
+
+Therefore,
+
+\[
+P\left(\frac{1}{2} \leq Y \leq 1\right) = 1 - \frac{\sqrt{2}}{4}
+\]
+
+
+(c) \[
+P\left(X \geq \frac{1}{2}, Y \geq \frac{1}{2}\right) = \int_{1/2}^{1} \int_{\sqrt{y}}^{1} \frac{3}{2} \, dx \, dy
+\]  
+\[
+   = \int_{1/2}^{1} \left[ \frac{3}{2} x \right]_{\sqrt{y}}^{1} \, dy = \int_{1/2}^{1} \frac{3}{2} (1 - \sqrt{y}) \, dy
+   \]  
+   \[
+   = \frac{3}{2} \int_{1/2}^{1} (1 - \sqrt{y}) \, dy = \frac{3}{2} \left( \int_{1/2}^{1} 1 \, dy - \int_{1/2}^{1} \sqrt{y} \, dy \right)
+   \]  
+   \[
+   = \frac{3}{2} \left( \left[ y \right]_{1/2}^{1} - \left[ \frac{2}{3} y^{3/2} \right]_{1/2}^{1} \right)
+   \]  
+   \[
+   = \frac{3}{2} \left( \left(1 - \frac{1}{2}\right) - \frac{2}{3} \left(1 - \frac{\sqrt{2}}{4}\right) \right)
+   \]  
+   \[
+   = \frac{5 - 2\sqrt{2}}{8}
+   \]  
+   
+(d) **\( X \) and \( Y \) are not independent**.
+
+\vspace{1em}
+
+**4.4-15** 
+
+\[
+   E(Y|X = x) = \frac{(x - 0.1) + (x + 0.1)}{2} = x
+   \]
+
+   Thus, the expected value of \( Y \) given \( X = x \) is simply \( x \).
+
+\[
+   E(Y) = E(E(Y|X)) = E(X)
+   \]
+
+\[
+   E(X) = \int_{0.2}^{\infty} x \cdot 2 e^{-2(x - 0.2)} \, dx
+   \]
+
+ \[
+   E(X) = \int_{0}^{\infty} (u + 0.2) \cdot 2 e^{-2u} \, du
+   \]
+
+   Separate the integral:
+
+   \[
+   = 2 \int_{0}^{\infty} u e^{-2u} \, du + 2 \cdot 0.2 \int_{0}^{\infty} e^{-2u} \, du
+   \]
+
+ - **First Integral:**
+
+     \[
+     \int_{0}^{\infty} u e^{-2u} \, du = \frac{1}{4}
+     \]
+
+   - **Second Integral:**
+
+     \[
+     \int_{0}^{\infty} e^{-2u} \, du = \frac{1}{2}
+     \]
+
+   So,
+
+   \[
+   E(X) = 2 \cdot \frac{1}{4} + 2 \cdot 0.2 \cdot \frac{1}{2} = \frac{1}{2} + 0.2 = 0.7
+   \]
+
+Therefore, the expected value of \( Y \) is:
+
+\[
+E(Y) = 0.7
+\]
+
+\vspace{1em}
+
+**4.4-17** 
+
+(b) \[
+f_X(x) = \int_{10 - x}^{14 - x} \frac{1}{40} \, dy
+\]
+\[
+f_X(x) = \frac{1}{40} \int_{10 - x}^{14 - x} 1 \, dy = \frac{1}{40} \cdot ((14 - x) - (10 - x)) = \frac{1}{40} \cdot 4 = \frac{1}{10}
+\]
+
+So, the marginal pdf of \( X \) is:
+
+\[
+f_X(x) = \frac{1}{10} \quad \text{for } 0 \leq x \leq 10
+\]
+
+(c) \[
+h(y|x) = \frac{f(x, y)}{f_X(x)}
+\]
+\[
+h(y|x) = \frac{\frac{1}{40}}{\frac{1}{10}} = \frac{1}{4}
+\]
+
+\[
+h(y|x) = \frac{1}{4} \quad \text{for } 10 - x \leq y \leq 14 - x, 0 \leq x \leq 10
+\]
+
+(d) \[
+E(Y|X = x) = \int_{10 - x}^{14 - x} y \cdot h(y|x) \, dy
+\]
+\[
+E(Y|X = x) = \int_{10 - x}^{14 - x} y \cdot \frac{1}{4} \, dy = \frac{1}{4} \int_{10 - x}^{14 - x} y \, dy
+\]
+\[
+E(Y|X = x) = \frac{1}{4} \cdot \left[ \frac{y^2}{2} \right]_{10 - x}^{14 - x} = \frac{1}{4} \cdot \left( \frac{(14 - x)^2}{2} - \frac{(10 - x)^2}{2} \right)
+\]
+\[
+E(Y|X = x) = \frac{1}{8} \left((196 - 28x + x^2) - (100 - 20x + x^2)\right)
+\]
+
+\[
+= \frac{1}{8} \left(96 - 8x\right) = 12 - x
+\]
+
+\[
+E(Y|X = x) = 12 - x
+\]
+
+\vspace{1em}
+
+**4.4-21** 
+
+1. **Joint Probability Definition**:  
+   We want to find \( P(X + Y \geq 1) \), which can be expressed as:
+   \[
+   P(X + Y \geq 1) = \int_0^1 P(Y \geq 1 - X \mid X = x) f_X(x) \, dx
+   \]
+   Since \( X \sim U(0, 1) \), we have \( f_X(x) = 1 \) for \( x \in (0, 1) \).
+
+2. **Conditional Probability Calculation**:  
+   Given \( X = x \), \( Y \sim U(0, x) \), so \( Y \) has a uniform distribution from \( 0 \) to \( x \).
+   
+   Then:
+   \[
+   P(Y \geq 1 - x \mid X = x) = \frac{\text{Length of interval where } Y \geq 1 - x}{\text{Total length of interval for } Y}
+   \]
+   For \( Y \sim U(0, x) \):
+   - The interval length where \( Y \geq 1 - x \) is \( x - (1 - x) = 2x - 1 \) (if \( 2x - 1 \geq 0 \), i.e., \( x \geq \frac{1}{2} \)).
+   - The total interval length for \( Y \) is \( x \).
+   
+   Thus:
+   \[
+   P(Y \geq 1 - x \mid X = x) = 
+   \begin{cases} 
+      0, & \text{if } x < \frac{1}{2} \\
+      \frac{2x - 1}{x}, & \text{if } x \geq \frac{1}{2} 
+   \end{cases}
+   \]
+   \[
+   P(X + Y \geq 1) = \int_{\frac{1}{2}}^1 \frac{2x - 1}{x} \, dx
+   \]
+   \[
+   P(X + Y \geq 1) = \int_{\frac{1}{2}}^1 \left(2 - \frac{1}{x}\right) dx
+   \]
+   \[
+   = \left[ 2x - \ln x \right]_{\frac{1}{2}}^1
+   \]
+   \[
+   = \left(2(1) - \ln(1)\right) - \left(2 \cdot \frac{1}{2} - \ln\left(\frac{1}{2}\right)\right)
+   \]
+   \[
+   = (2 - 0) - (1 + \ln 2) = 1 - \ln 2
+   \]
+
+So, the answer is:
+\[
+P(X + Y \geq 1) = 1 - \ln 2
+\]
+
+\vspace{1em}
+
+**4.5-1** 
+
+(a) \( P(-5 < X < 5) \)
+
+Standardizing \(X\):
+\[
+P(-5 < X < 5) = P\left(-0.4 < Z < 1.6\right)
+\]
+
+- \(\Phi(1.6) \approx 0.9452\)
+- \(\Phi(-0.4) \approx 0.3446\)
+
+\[
+P(-0.4 < Z < 1.6) = 0.9452 - 0.3446 = 0.6006
+\]
+
+**Answer (a):** \(0.6006\)  
+
+(b) \( P(-5 < X < 5 \mid Y = 13) \)
+
+Given \(Y = 13\), we have \(X \mid Y = 13 \sim N(0, 16)\), so:
+\[
+P(-5 < X < 5 \mid Y = 13) = P(-1.25 < Z < 1.25)
+\]
+
+- \(\Phi(1.25) \approx 0.8944\)
+- \(\Phi(-1.25) \approx 0.1056\)
+
+\[
+P(-1.25 < Z < 1.25) = 0.8944 - 0.1056 = 0.7888
+\]
+
+**Answer (b):** \(0.7888\)  
+
+(c) \( P(7 < Y < 16) \)
+
+Standardizing \(Y\):
+\[
+P(7 < Y < 16) = P(-1 < Z < 2)
+\]
+- \(\Phi(2) \approx 0.9772\)
+- \(\Phi(-1) \approx 0.1587\)
+
+\[
+P(-1 < Z < 2) = 0.9772 - 0.1587 = 0.8185
+\]
+
+**Answer (c):** \(0.8185\)  
+
+(d) \[
+\mu_{Y|X=2} = \mu_Y + \rho \frac{\sigma_Y}{\sigma_X}(x - \mu_X) = 10 + \frac{3}{5} \cdot \frac{3}{5}(2 + 3) = 11.8
+\]
+
+\[
+\text{Var}(Y|X=2) = \sigma_Y^2 (1 - \rho^2) = 9 \left( 1 - \left(\frac{3}{5}\right)^2 \right) = 5.76
+\]
+
+\[
+P(7 < Y < 16 | X=2) = P\left(\frac{7 - 11.8}{\sqrt{5.76}} < Z < \frac{16 - 11.8}{\sqrt{5.76}}\right)
+\]
+
+\[
+P(7 < Y < 16 | X=2) = P(-2 < Z < 1.75) = \Phi(1.75) - \Phi(-2)
+\]
+
+Using the standard normal table:
+\[
+\Phi(1.75) = 0.9599, \quad \Phi(-2) = 0.0228
+\]
+
+\[
+P(-2 < Z < 1.75) = 0.9599 - 0.0228 = 0.9371
+\]
+
+**Answer (d):** \(0.9371\)
+
+### Summary of Answers:
+
+- **(a)** \(0.6006\)
+- **(b)** \(0.7888\)
+- **(c)** \(0.8185\)
+- **(d)** \(0.9371\)
+
+\vspace{1em}
+
+**4.5-3** 
+
+(a) \( P(108 < Y < 126) \)
+
+Since \(Y\) is normally distributed with mean \(\mu_Y = 110\) and standard deviation \(\sigma_Y = 10\), we standardize \(Y\) to calculate the probability.
+
+1. **Standardize 108:**
+   \[
+   Z_1 = \frac{108 - \mu_Y}{\sigma_Y} = \frac{108 - 110}{10} = -0.2
+   \]
+
+2. **Standardize 126:**
+   \[
+   Z_2 = \frac{126 - \mu_Y}{\sigma_Y} = \frac{126 - 110}{10} = 1.6
+   \]
+
+Now, we need \(P(-0.2 < Z < 1.6)\) where \(Z\) is a standard normal variable.
+
+Using the standard normal table:
+- \(\Phi(1.6) \approx 0.9452\)
+- \(\Phi(-0.2) \approx 0.4207\)
+
+So,
+\[
+P(-0.2 < Z < 1.6) = 0.9452 - 0.4207 = 0.5245
+\]
+
+**Answer for (a):** \(0.5245\)  
+
+(b) \( P(108 < Y < 126 \mid X = 3.2) \)
+
+Given \(X = 3.2\), the conditional distribution of \(Y\) is normally distributed with:
+
+1. **Conditional Mean of \(Y\):**
+   \[
+   E(Y \mid X = 3.2) = \mu_Y + \rho \frac{\sigma_Y}{\sigma_X} (X - \mu_X)
+   \]
+   Substituting the values:
+   \[
+   E(Y \mid X = 3.2) = 110 + 0.6 \cdot \frac{10}{0.4} \cdot (3.2 - 2.8)
+   \]
+   \[
+   = 110 + 0.6 \cdot 25 \cdot 0.4 = 110 + 6 = 116
+   \]
+
+2. **Conditional Variance of \(Y\):**
+   \[
+   \text{Var}(Y \mid X = 3.2) = \sigma_Y^2 (1 - \rho^2) = 100 \cdot (1 - 0.36) = 100 \cdot 0.64 = 64
+   \]
+   Thus, the conditional standard deviation of \(Y\) is \(\sigma_{Y \mid X} = \sqrt{64} = 8\).
+
+Now, we want \(P(108 < Y < 126 \mid X = 3.2)\).
+
+3. **Standardize 108 and 126 under the conditional distribution of \(Y\):**
+
+   - For 108:
+     \[
+     Z_1 = \frac{108 - 116}{8} = \frac{-8}{8} = -1
+     \]
+
+   - For 126:
+     \[
+     Z_2 = \frac{126 - 116}{8} = \frac{10}{8} = 1.25
+     \]
+
+Now, we need \(P(-1 < Z < 1.25)\).
+
+Using the standard normal table:
+- \(\Phi(1.25) \approx 0.8944\)
+- \(\Phi(-1) \approx 0.1587\)
+
+So,
+\[
+P(-1 < Z < 1.25) = 0.8944 - 0.1587 = 0.7357
+\]
+
+**Answer for (b):** \(0.7357\)
+
+### Summary of Answers
+
+- **(a)** \(0.5245\)
+- **(b)** \(0.7357\)
+
+\vspace{1em}
+
+**4.5-11** 
+
+(a) \( P(1.3 \leq Y \leq 5.8) \)
+
+Standardizing \( Y \):
+
+\[
+P(1.3 \leq Y \leq 5.8) = P\left(\frac{1.3 - (-0.2)}{3.0} \leq Z \leq \frac{5.8 - (-0.2)}{3.0}\right)
+\]
+\[
+= P(0.5 \leq Z \leq 2.0)
+\]
+
+Using the standard normal distribution tables or a calculator:
+
+\[
+P(0.5 \leq Z \leq 2.0) = 0.4772 - 0.1915 = 0.2857
+\]
+
+**Answer for (a):** \( 0.2857 \)
+
+(b) Conditional Mean \( \mu_{Y|X} \)
+
+The conditional mean \( \mu_{Y|X} \) is calculated as follows:
+
+\[
+\mu_{Y|X} = \mu_Y + \rho \frac{\sigma_Y}{\sigma_X} (x - \mu_X)
+\]
+
+Substituting values:
+
+\[
+\mu_{Y|X} = -0.2 + (-0.32) \cdot \frac{3.0}{4.8} \cdot (x - 24.5)
+\]
+\[
+= 0.2 \cdot x + 4.7
+\]
+
+(c) Conditional Variance \( \sigma^2_{Y|X} \)
+
+The conditional variance \( \sigma^2_{Y|X} \) is calculated as:
+
+\[
+\sigma^2_{Y|X} = \sigma^2_Y (1 - \rho^2)
+\]
+
+Substituting values:
+
+\[
+\sigma^2_{Y|X} = 9.0 \cdot (1 - (-0.32)^2) = 9.0 \cdot (1 - 0.1024) = 9.0 \cdot 0.8976 = 8.0784
+\]
+
+Thus, the conditional standard deviation \( \sigma_{Y|X} \) is:
+
+\[
+\sigma_{Y|X} = \sqrt{8.0784} \approx 2.8423
+\]
+
+**Answer for (c):** \( \sigma^2_{Y|X} = 8.0784 \) and \( \sigma_{Y|X} \approx 2.8423 \)
+
+(d) \( P(1.3 \leq Y \leq 5.8 | X = 18) \)
+
+First, calculate \( \mu_{Y|X=18} \):
+
+\[
+\mu_{Y|X=18} = -0.2 - 0.2 \cdot (18 - 24.5) = -0.2 - 0.2 \cdot (-6.5) = -0.2 + 1.3 = 1.1
+\]
+
+Using \( \sigma_{Y|X} \approx 2.8423 \) from part (c), standardize the bounds:
+
+\[
+P(1.3 \leq Y \leq 5.8 | X = 18) = P\left(\frac{1.3 - 1.1}{2.8423} \leq Z \leq \frac{5.8 - 1.1}{2.8423}\right)
+ = 0.4228 \]
+**Answer for (d):** \( 0.4228 \)
+
+### Summary of Answers
+
+- **(a)** \( 0.2857 \)
+- **(b)** \( \mu_{Y|X} =  0.2 \cdot x + 4.7 \)
+- **(c)** \( \sigma^2_{Y|X} = 8.0784 \), \( \sigma_{Y|X} \approx 2.8423 \)
+- **(d)** \( 0.4228 \)
+
+\vspace{1em}
+
+**5.1-3** 
+
+1. **Determine the range of \( Y \):**
+
+   Since \( X \) ranges from \( 0 \) to \( 1 \), \( Y = X^2 \) will range from \( 0 \) to \( 1 \) as well.
+
+2. **Find the cumulative distribution function (CDF) of \( Y \):**
+
+   To find \( F_Y(y) = P(Y \leq y) \), we express this in terms of \( X \):
+   
+   \[
+   P(Y \leq y) = P(X^2 \leq y) = P(X \leq \sqrt{y})
+   \]
+   
+   For \( 0 \leq y \leq 1 \), the CDF of \( Y \) is:
+   
+   \[
+   F_Y(y) = P(X \leq \sqrt{y}) = \int_0^{\sqrt{y}} 4x^3 \, dx
+   \]
+   
+   Calculating the integral:
+   
+   \[
+   F_Y(y) = \int_0^{\sqrt{y}} 4x^3 \, dx = \left[ x^4 \right]_0^{\sqrt{y}} = (\sqrt{y})^4 = y^2
+   \]
+   
+   Thus, \( F_Y(y) = y^2 \) for \( 0 \leq y \leq 1 \).
+
+3. **Find the pdf of \( Y \):**
+
+   To find the pdf \( f_Y(y) \), we differentiate the CDF \( F_Y(y) \) with respect to \( y \):
+   
+   \[
+   f_Y(y) = \frac{d}{dy} F_Y(y) = \frac{d}{dy} y^2 = 2y
+   \]
+   
+   Therefore, the pdf of \( Y \) is:
+   
+   \[
+   f_Y(y) = 2y, \quad 0 < y < 1
+   \]
+
+### Final Answer
+
+The pdf of \( Y = X^2 \) is:
+\[
+f_Y(y) = 2y, \quad 0 < y < 1
+\]
+
+\vspace{1em}
+
+**5.1-12** 
+
+1. **Determine the range of \( Y \):**
+
+   Since \( X \) is uniformly distributed from \( -1 \) to \( 3 \), \( Y = X^2 \) will range from \( 0 \) (when \( X = 0 \)) to \( 9 \) (when \( X = 3 \)).
+
+   Therefore, \( 0 \leq Y \leq 9 \).
+
+2. **Find the cumulative distribution function (CDF) of \( Y \):**
+
+   The CDF \( F_Y(y) = P(Y \leq y) \) can be found by expressing it in terms of \( X \):
+   
+   \[
+   P(Y \leq y) = P(X^2 \leq y)
+   \]
+   
+   This inequality \( X^2 \leq y \) implies \( -\sqrt{y} \leq X \leq \sqrt{y} \).
+
+   Since \( X \) is uniformly distributed over \( (-1, 3) \), we need to consider different cases for \( y \):
+
+   - For \( 0 \leq y < 1 \):
+     \[
+     F_Y(y) = P(-\sqrt{y} \leq X \leq \sqrt{y}) = \int_{-\sqrt{y}}^{\sqrt{y}} \frac{1}{4} \, dx = \frac{\sqrt{y} - (-\sqrt{y})}{4} = \frac{\sqrt{y}}{2}
+     \]
+
+   - For \( 1 \leq y \leq 9 \):
+     \[
+     F_Y(y) = P(-1 \leq X \leq \sqrt{y}) = \int_{-1}^{\sqrt{y}} \frac{1}{4} \, dx = \frac{\sqrt{y} + 1}{4}
+     \]
+
+3. **Differentiate to find the pdf \( f_Y(y) \):**
+
+   To get the pdf \( f_Y(y) \), differentiate \( F_Y(y) \) with respect to \( y \):
+   
+   - For \( 0 \leq y < 1 \):
+     \[
+     f_Y(y) = \frac{d}{dy} \left( \frac{\sqrt{y}}{2} \right) = \frac{1}{4\sqrt{y}}
+     \]
+   
+   - For \( 1 \leq y \leq 9 \):
+     \[
+     f_Y(y) = \frac{d}{dy} \left( \frac{\sqrt{y} + 1}{4} \right) = \frac{1}{8\sqrt{y}}
+     \]
+
+### Final Answer
+
+The pdf of \( Y = X^2 \) is:
+\[
+f_Y(y) = 
+\begin{cases} 
+\frac{1}{4\sqrt{y}}, & 0 \leq y < 1 \\ 
+\frac{1}{8\sqrt{y}}, & 1 \leq y \leq 9 
+\end{cases}
+\]
+
+\vspace{1em}
+
+**5.1-18** 
+
+(a)
+
+\[
+G(y) = P(Y \leq y) = P(X^2 \leq y) = 
+\begin{cases} 
+    P(-\sqrt{y} \leq X \leq \sqrt{y}), & 0 \leq y < 1 \\
+    P(-1 < X \leq \sqrt{y}), & 1 \leq y < 4 
+\end{cases} 
+\]
+
+When \(0 \leq y < 1\),
+\[
+G(y) = P(-\sqrt{y} \leq X \leq \sqrt{y}) = \int_{-\sqrt{y}}^{\sqrt{y}} \frac{2}{9}(x + 1) \, dx = \frac{2}{9} \left( \frac{x^2}{2} + x \right) \Big|_{-\sqrt{y}}^{\sqrt{y}} = \frac{4}{9} \sqrt{y}
+\]
+\[
+g(y) = G'(y) = \frac{2}{9 \sqrt{y}}, \quad 0 \leq y < 1
+\]
+
+When \(1 \leq y < 4\),
+\[
+G(y) = P(-1 < X \leq \sqrt{y}) = \int_{-1}^{\sqrt{y}} \frac{2}{9}(x + 1) \, dx = \frac{2}{9} \left( \frac{y}{2} + \sqrt{y} + \frac{1}{2} \right)
+\]
+\[
+g(y) = G'(y) = \frac{1}{9} + \frac{1}{9 \sqrt{y}}, \quad 1 \leq y < 4
+\]
+
+Therefore,
+\[
+g(y) = 
+\begin{cases} 
+    \frac{2}{9 \sqrt{y}}, & 0 \leq y < 1 \\
+    \frac{1}{9} + \frac{1}{9 \sqrt{y}}, & 1 \leq y < 4 
+\end{cases}
+\]
+
+(b)
+
+\[
+G(y) = P(Y \leq y) = P(X^2 \leq y) = 
+\begin{cases} 
+    P(-\sqrt{y} \leq X \leq \sqrt{y}), & 0 \leq y < 1 \\
+    P(-\sqrt{y} \leq X < 1), & 1 \leq y < 4 
+\end{cases} 
+\]
+
+When \(0 \leq y < 1\),
+\[
+G(y) = P(-\sqrt{y} \leq X \leq \sqrt{y}) = \int_{-\sqrt{y}}^{\sqrt{y}} \frac{2}{9}(x + 2) \, dx = \frac{8}{9} \sqrt{y}
+\]
+\[
+g(y) = G'(y) = \frac{4}{9 \sqrt{y}}, \quad 0 \leq y < 1
+\]
+
+When \(1 \leq y < 4\),
+\[
+G(y) = P(-\sqrt{y} \leq X < 1) = \int_{-\sqrt{y}}^{1} \frac{2}{9}(x + 2) \, dx = \frac{2}{9} \left( -\frac{y}{2} + 2\sqrt{y} + \frac{3}{2} \right)
+\]
+\[
+g(y) = G'(y) = -\frac{1}{9} + \frac{2}{9 \sqrt{y}}, \quad 1 \leq y < 4
+\]
+
+Therefore,
+\[
+g(y) = 
+\begin{cases} 
+    \frac{4}{9 \sqrt{y}}, & 0 \leq y < 1 \\
+    -\frac{1}{9} + \frac{2}{9 \sqrt{y}}, & 1 \leq y < 4 
+\end{cases}
+\]
+
+\vspace{1em}
+
+**5.2-1** 
+
+1. **Joint PDF of \( Y_1 \) and \( Y_2 \)**
+
+   Since \( Y_1 = X_1 \) and \( Y_2 = X_1 + X_2 \), we have:
+   \[
+   X_1 = Y_1 \quad \text{and} \quad X_2 = Y_2 - Y_1
+   \]
+
+   The Jacobian determinant \( J \) for the transformation is:
+   \[
+   J = \begin{vmatrix} 
+   \frac{\partial X_1}{\partial Y_1} & \frac{\partial X_1}{\partial Y_2} \\ 
+   \frac{\partial X_2}{\partial Y_1} & \frac{\partial X_2}{\partial Y_2} 
+   \end{vmatrix} = \begin{vmatrix} 
+   1 & 0 \\ 
+   -1 & 1 
+   \end{vmatrix} = 1
+   \]
+
+   The joint PDF \( f_{Y_1, Y_2}(y_1, y_2) \) is:
+   \[
+   f_{Y_1, Y_2}(y_1, y_2) = f_{X_1}(y_1) f_{X_2}(y_2 - y_1)
+   \]
+   where \( f_{X_i}(x) = \frac{1}{2} e^{-x/2} \) for \( x > 0 \). Thus,
+   \[
+   f_{Y_1, Y_2}(y_1, y_2) = \frac{1}{2} e^{-y_1/2} \cdot \frac{1}{2} e^{-(y_2 - y_1)/2} = \frac{1}{4} e^{-y_2/2}, \quad 0 < y_1 < y_2 < \infty
+   \]
+
+2. **Marginal PDFs of \( Y_1 \) and \( Y_2 \)**
+
+   - For \( Y_1 \):
+     \[
+     f_{Y_1}(y_1) = \int_{y_1}^{\infty} f_{Y_1, Y_2}(y_1, y_2) \, dy_2 = \int_{y_1}^{\infty} \frac{1}{4} e^{-y_2/2} \, dy_2
+     \]
+     \[
+     = \frac{1}{4} \cdot 2 e^{-y_1/2} = \frac{1}{2} e^{-y_1/2}, 0 < y1
+     \]
+
+   - For \( Y_2 \):
+     \[
+     f_{Y_2}(y_2) = \int_{0}^{y_2} f_{Y_1, Y_2}(y_1, y_2) \, dy_1 = \int_{0}^{y_2} \frac{1}{4} e^{-y_2/2} \, dy_1
+     \]
+     \[
+     = \frac{1}{4} e^{-y_2/2} \cdot y_2, 0 < y2
+     \]
+
+3. **Independence of \( Y_1 \) and \( Y_2 \)**
+
+   Since \( f_{Y_1, Y_2}(y_1, y_2) \neq f_{Y_1}(y_1) f_{Y_2}(y_2) \), \( Y_1 \) and \( Y_2 \) are not independent.
+
+\vspace{1em}
+
+**5.2-5** 
+
+(a) 14.80;  
+
+(b) 1/7.01 = 0.1427;  
+
+(c) 0.95.  
+
+\vspace{1em}
+
+**5.3-1** 
+
+### Solution
+
+(a)
+Since \( X_1 \) and \( X_2 \) are independent Poisson random variables:
+\[
+P(X_1 = 3, X_2 = 5) = P(X_1 = 3) \cdot P(X_2 = 5)
+\]
+
+\[
+P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}
+\]
+
+\[
+P(X_1 = 3, X_2 = 5) = \left( \frac{2^3 e^{-2}}{3!} \right) \cdot \left( \frac{3^5 e^{-3}}{5!} \right) = 0.0182
+\]
+
+(b)
+The event \( X_1 + X_2 = 1 \) can occur under two disjoint conditions:
+- \( X_1 = 1 \) and \( X_2 = 0 \)
+- \( X_1 = 0 \) and \( X_2 = 1 \)
+
+
+\[
+P(X_1 + X_2 = 1) = P(X_1 = 1, X_2 = 0) + P(X_1 = 0, X_2 = 1)
+\]
+Since \( X_1 \) and \( X_2 \) are independent:
+\[
+P(X_1 + X_2 = 1) = P(X_1 = 1) \cdot P(X_2 = 0) + P(X_1 = 0) \cdot P(X_2 = 1)
+\]
+
+\[
+P(X_1 = 1) = \frac{2^1 e^{-2}}{1!}, \quad P(X_1 = 0) = \frac{2^0 e^{-2}}{0!}
+\]
+\[
+P(X_2 = 1) = \frac{3^1 e^{-3}}{1!}, \quad P(X_2 = 0) = \frac{3^0 e^{-3}}{0!}
+\]
+
+\[
+P(X_1 + X_2 = 1) = \left( \frac{2^1 e^{-2}}{1!} \cdot \frac{3^0 e^{-3}}{0!} \right) + \left( \frac{2^0 e^{-2}}{0!} \cdot \frac{3^1 e^{-3}}{1!} \right) = 0.0337
+\]
+
+\vspace{1em}
+
+**5.3-6** 
+
+#### Mean
+The expected value of \( X \), \( \mathbb{E}[X] \), is:
+\[
+\mathbb{E}[X] = \int_0^1 x \cdot f(x) \, dx = \int_0^1 x \cdot 6x(1-x) \, dx
+\]
+
+Compute the integral:
+\[
+\mathbb{E}[X] = \int_0^1 6x^2 - 6x^3 \, dx = \left[ 2x^3 - \frac{3x^4}{2} \right]_0^1 = 2 - \frac{3}{2} = \frac{1}{2}
+\]
+
+Thus:
+\[
+\mathbb{E}[X_1] = \mathbb{E}[X_2] = \frac{1}{2}
+\]
+And:
+\[
+\mathbb{E}[Y] = \mathbb{E}[X_1] + \mathbb{E}[X_2] = \frac{1}{2} + \frac{1}{2} = 1
+\]
+
+#### Variance
+The variance of \( X \), \( \text{Var}(X) \), is:
+\[
+\text{Var}(X) = \mathbb{E}[X^2] - (\mathbb{E}[X])^2
+\]
+
+Compute \( \mathbb{E}[X^2] \):
+\[
+\mathbb{E}[X^2] = \int_0^1 x^2 \cdot f(x) \, dx = \int_0^1 x^2 \cdot 6x(1-x) \, dx = \int_0^1 6x^3 - 6x^4 \, dx
+\]
+\[
+\mathbb{E}[X^2] = \left[ \frac{6x^4}{4} - \frac{6x^5}{5} \right]_0^1 = \frac{3}{2} - \frac{6}{5} = \frac{15}{10} - \frac{12}{10} = \frac{3}{10}
+\]
+
+Thus:
+\[
+\text{Var}(X) = \mathbb{E}[X^2] - (\mathbb{E}[X])^2 = \frac{3}{10} - \left(\frac{1}{2}\right)^2 = \frac{3}{10} - \frac{1}{4} = \frac{12}{40} - \frac{10}{40} = \frac{1}{20}
+\]
+
+Since \( X_1 \) and \( X_2 \) are independent:
+\[
+\text{Var}(Y) = \text{Var}(X_1) + \text{Var}(X_2) = \frac{1}{20} + \frac{1}{20} = \frac{1}{10}
+\]
+
+\vspace{1em}
+
+**5.5-1** 
+
+(a) \[
+Z = \frac{\bar{X} - \mu}{\sigma / \sqrt{n}}
+\]
+For \( \bar{X} = 77 \):
+\[
+Z_1 = \frac{77 - 77}{1.25} = 0
+\]
+For \( \bar{X} = 79.5 \):
+\[
+Z_2 = \frac{79.5 - 77}{1.25} = 2
+\]
+Therefore:
+\[
+P(77 < \bar{X} < 79.5) = P(0 < Z < 2)
+\]
+Using the standard normal table:
+\[
+P(0 < Z < 2) = \Phi(2) - \Phi(0) = 0.9772 - 0.5 = 0.4772
+\]
+
+(b) For \( \bar{X} = 74.2 \):
+\[
+Z_1 = \frac{74.2 - 77}{1.25} = -2.24
+\]
+For \( \bar{X} = 78.4 \):
+\[
+Z_2 = \frac{78.4 - 77}{1.25} = 1.12
+\]
+Therefore:
+\[
+P(74.2 < \bar{X} < 78.4) = P(-2.24 < Z < 1.12)
+\]
+Using the standard normal table:
+\[
+P(-2.24 < Z < 1.12) = \Phi(1.12) - \Phi(-2.24)
+\]
+\[
+\Phi(1.12) = 0.8686, \quad \Phi(-2.24) = 1 - \Phi(2.24) = 1 - 0.9875 = 0.0125
+\]
+Thus:
+\[
+P(-2.24 < Z < 1.12) = 0.8686 - 0.0125 = 0.8561
+\]
+
+\vspace{1em}
+
+**5.5-3** 
+
+(a) Given \( X \sim N(46.58, 40.96) \), the sample mean \( \bar{X} \) of \( n = 16 \) observations has:
+\[
+\mathbb{E}[\bar{X}] = \mu = 46.58, \quad \text{Var}(\bar{X}) = \frac{\sigma^2}{n} = \frac{40.96}{16} = 2.56
+\]
+The standard deviation of \( \bar{X} \):
+\[
+\text{SD}(\bar{X}) = \sqrt{2.56} = 1.6
+\]  
+
+(b) \[
+Z = \frac{\bar{X} - \mu}{\sigma / \sqrt{n}}
+\]
+For \( \bar{X} = 44.42 \):
+\[
+Z_1 = \frac{44.42 - 46.58}{1.6} = \frac{-2.16}{1.6} = -1.35
+\]
+For \( \bar{X} = 48.98 \):
+\[
+Z_2 = \frac{48.98 - 46.58}{1.6} = \frac{2.4}{1.6} = 1.5
+\]
+Thus:
+\[
+P(44.42 \leq \bar{X} \leq 48.98) = P(-1.35 \leq Z \leq 1.5)
+\]
+Using the standard normal table:
+\[
+\Phi(1.5) = 0.9332, \quad \Phi(-1.35) = 1 - \Phi(1.35) = 1 - 0.9115 = 0.0885
+\]
+Therefore:
+\[
+P(-1.35 \leq Z \leq 1.5) = 0.9332 - 0.0885 = 0.8447
+\]
+
+\vspace{1em}
+
+**5.5-6** 
+
+(a) \[
+\text{Var}(\bar{X}) = \text{Var}(\bar{Y})
+\]
+Substitute the variances:
+\[
+\frac{4}{100} = \frac{9}{n}
+\]
+Solve for \( n \):
+\[
+n = \frac{9 \cdot 100}{4} = 225
+\]
+
+(b)
+For \( n = 225 \), find \( P(\bar{Y} - \bar{X} > 0.2) \).
+
+Since \( \bar{Y} \) and \( \bar{X} \) are independent:
+\[
+\bar{Y} - \bar{X} \sim N(0, \text{Var}(\bar{Y}) + \text{Var}(\bar{X}))
+\]
+Substitute the variances:
+\[
+\text{Var}(\bar{Y} - \bar{X}) = \frac{9}{225} + \frac{4}{100} = 0.04 + 0.04 = 0.08
+\]
+Standard deviation:
+\[
+\text{SD}(\bar{Y} - \bar{X}) = \sqrt{0.08} = 0.2828
+\]
+
+Convert to the standard normal distribution:
+\[
+Z = \frac{\bar{Y} - \bar{X} - 0.2}{\text{SD}(\bar{Y} - \bar{X})} = \frac{0.2}{0.2828} \approx 0.707
+\]
+
+Using the standard normal table:
+\[
+P(\bar{Y} - \bar{X} > 0.2) = P(Z > 0.707)
+\]
+\[
+P(Z > 0.707) = 1 - \Phi(0.707) = 1 - 0.7602 = 0.2398
+\]
+
+\vspace{1em}
+
+**5.5-7** 
+
+#### Step 1: Distribution of \( Y \)
+Since the sum of independent normal random variables is also normal:
+\[
+Y \sim N\left( \mathbb{E}[X_1] + \mathbb{E}[X_2] + \mathbb{E}[X_3], \text{Var}(X_1) + \text{Var}(X_2) + \text{Var}(X_3) \right)
+\]
+
+Substitute the values:
+\[
+\mathbb{E}[Y] = 1.18 + 1.18 + 1.18 = 3.54
+\]
+\[
+\text{Var}(Y) = 0.07^2 + 0.07^2 + 0.07^2 = 3 \times 0.0049 = 0.0147
+\]
+\[
+Y \sim N(3.54, 0.0147)
+\]
+
+#### Step 2: Find \( P(Y > W) \)
+Let \( Z = Y - W \). Since \( Y \) and \( W \) are independent:
+\[
+Z \sim N\left( \mathbb{E}[Y] - \mathbb{E}[W], \text{Var}(Y) + \text{Var}(W) \right)
+\]
+
+Substitute the values:
+\[
+\mathbb{E}[Z] = \mathbb{E}[Y] - \mathbb{E}[W] = 3.54 - 3.22 = 0.32
+\]
+\[
+\text{Var}(Z) = \text{Var}(Y) + \text{Var}(W) = 0.0147 + 0.09^2 = 0.0147 + 0.0081 = 0.0228
+\]
+\[
+Z \sim N(0.32, 0.0228)
+\]
+
+The standard deviation of \( Z \):
+\[
+\text{SD}(Z) = \sqrt{0.0228} \approx 0.151
+\]
+
+#### Step 3: Compute \( P(Y > W) = P(Z > 0) \)
+Convert \( Z \) to the standard normal distribution:
+\[
+Z = \frac{Z - \mathbb{E}[Z]}{\text{SD}(Z)} = \frac{0 - 0.32}{0.151} \approx -2.12
+\]
+
+Using the standard normal table:
+\[
+P(Z > 0) = 1 - P(Z \leq -2.12)
+\]
+\[
+P(Z \leq -2.12) \approx 0.017
+\]
+\[
+P(Z > 0) = 1 - 0.017 = 0.983
+\]
+
+\vspace{1em}
+
+**5.5-15**  
+
+(a) 2.567;  
+
+(b) −1.740;  
+
+(c) 0.90.
