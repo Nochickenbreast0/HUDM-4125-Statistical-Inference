@@ -1,0 +1,676 @@
+---
+title: "Solution6"
+subtitle: HUDM 4125
+output:
+  pdf_document:
+    latex_engine: xelatex
+    keep_tex: yes
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**6.4-4**
+
+The pmf of the random variable \(X\) is:
+\[
+f(x) = \frac{2 + \theta(2 - x)}{6}, \quad x = 1, 2, 3,
+\]
+where \(\theta \in \{-1, 0, 1\}\).
+
+### Likelihood Function
+Given the sample \(\{x_1, x_2, x_3, x_4\} = \{3, 2, 3, 1\}\), the likelihood function is:
+\[
+L(\theta) = \prod_{i=1}^4 f(x_i) = \prod_{i=1}^4 \frac{2 + \theta(2 - x_i)}{6}.
+\]
+Simplified:
+\[
+L(\theta) = \frac{1}{6^4} \prod_{i=1}^4 \left(2 + \theta(2 - x_i)\right).
+\]
+
+### Log-Likelihood
+The log-likelihood function is:
+\[
+\ell(\theta) = -4 \log 6 + \sum_{i=1}^4 \log \left(2 + \theta(2 - x_i)\right).
+\]
+
+For the observed sample:
+\[
+\{x_1, x_2, x_3, x_4\} = \{3, 2, 3, 1\},
+\]
+
+\[
+2 - x_1 = -1, \quad 2 - x_2 = 0, \quad 2 - x_3 = -1, \quad 2 - x_4 = 1.
+\]
+Thus:
+\[
+\ell(\theta) = -4 \log 6 + \log \left(2 + \theta(-1)\right) + \log \left(2 + \theta(0)\right) + \log \left(2 + \theta(-1)\right) + \log \left(2 + \theta(1)\right).
+\]
+
+### Maximization
+Evaluate \(\ell(\theta)\) for each \(\theta \in \{-1, 0, 1\}\):
+- For \(\theta = -1\): \((2 + \theta(2 - x_i)) = 1, 2, 1, 1\).
+- For \(\theta = 0\): \((2 + \theta(2 - x_i)) = 2, 2, 2, 2\).
+- For \(\theta = 1\): \((2 + \theta(2 - x_i)) = 1, 2, 1, 3\).
+
+The log-likelihood values for each \(\theta\) are:
+\[
+\ell(-1) = -4.2767, \quad \ell(0) = -4.3944, \quad \ell(1) = -5.3753.
+\]
+
+### Result
+The maximum likelihood estimate (MLE) of \(\theta\) is:
+\[
+\hat{\theta} = -1,
+\]
+as it maximizes the log-likelihood function.
+
+\vspace{1em}
+
+**6.4-7** 
+
+(b) Derive the MLE
+The likelihood function for a sample size \(n\) is:
+\[
+L(\theta) = \prod_{i=1}^n \theta x_i^{\theta - 1}.
+\]
+Taking the natural log:
+\[
+\ln L(\theta) = n \ln \theta + (\theta - 1) \sum_{i=1}^n \ln x_i.
+\]
+Differentiating with respect to \(\theta\):
+\[
+\frac{\partial \ln L(\theta)}{\partial \theta} = \frac{n}{\theta} + \sum_{i=1}^n \ln x_i.
+\]
+Setting \(\frac{\partial \ln L(\theta)}{\partial \theta} = 0\), solve for \(\theta\):
+\[
+\hat{\theta} = -\frac{n}{\sum_{i=1}^n \ln x_i}.
+\]  
+(c) MLE and MOM Estimates
+1. **Maximum Likelihood Estimate (MLE):**
+\[
+\hat{\theta} = -\frac{n}{\sum_{i=1}^n \ln x_i}.
+\]
+2. **Method-of-Moments Estimate (MOM):**
+From the expected value:
+\[
+E[X] = \frac{\theta}{\theta + 1}.
+\]
+Equating to the sample mean \(\bar{X}\):
+\[
+\bar{X} = \frac{\hat{\theta}}{\hat{\theta} + 1}.
+\]
+Solving for \(\hat{\theta}\):
+\[
+\hat{\theta} = \frac{\bar{X}}{1 - \bar{X}}.
+\]
+
+### Results for Each Dataset
+The MLE and MOM estimates for each dataset are as follows:
+
+\[
+\begin{array}{|c|c|c|}
+\hline
+\text{Dataset} & \text{MLE} & \text{MOM} \\
+\hline
+\text{(i)} & 0.5493 & 0.5975 \\
+\text{(ii)} & 2.2101 & 2.4004 \\
+\text{(iii)} & 0.9588 & 0.8646 \\
+\hline
+\end{array}
+\]
+
+\vspace{1em}
+
+**6.4-8** 
+
+(a) The PDF of \(X\) is:
+\[
+f(x; \theta) = \frac{1}{\theta} x^{\frac{1-\theta}{\theta}}, \quad 0 < x < 1, \, \theta > 0.
+\]
+The likelihood function is:
+\[
+L(\theta) = \prod_{i=1}^n \frac{1}{\theta} X_i^{\frac{1-\theta}{\theta}}.
+\]
+The log-likelihood is:
+\[
+\ln L(\theta) = -n \ln \theta + \frac{1 - \theta}{\theta} \sum_{i=1}^n \ln X_i.
+\]
+Differentiating with respect to \(\theta\):
+\[
+\frac{\partial \ln L(\theta)}{\partial \theta} = -\frac{n}{\theta} + \frac{1}{\theta^2} \sum_{i=1}^n \ln X_i.
+\]
+Setting \(\frac{\partial \ln L(\theta)}{\partial \theta} = 0\), solving gives:
+\[
+\hat{\theta} = -\frac{1}{n} \sum_{i=1}^n \ln X_i.
+\]
+
+(b) For \(X_i \sim f(x; \theta)\), the expected value of \(\ln X_i\) is:
+\[
+E[\ln X_i] = \int_0^1 \ln x \cdot \frac{1}{\theta} x^{\frac{1-\theta}{\theta}} \, dx.
+\]
+This evaluates to:
+\[
+E[\ln X_i] = -\theta.
+\]
+The expected value of \(\hat{\theta}\) is:
+\[
+E[\hat{\theta}] = -\frac{1}{n} \sum_{i=1}^n E[\ln X_i] = -\frac{1}{n} \cdot n \cdot (-\theta) = \theta.
+\]
+
+### Conclusion
+Thus, \(E[\hat{\theta}] = \theta\), and \(\hat{\theta}\) is an unbiased estimator of \(\theta\).
+
+\vspace{1em}
+
+**6.4-9** 
+
+(a) The PDF is:
+\[
+f(x; \theta) = \frac{1}{\theta} e^{-x / \theta}, \quad x > 0, \, \theta > 0.
+\]
+The expected value of \(X\) for the exponential distribution is:
+\[
+E[X] = \theta.
+\]
+The sample mean is:
+\[
+\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i.
+\]
+The expected value of \(\bar{X}\) is:
+\[
+E[\bar{X}] = E\left[\frac{1}{n} \sum_{i=1}^n X_i\right] = \frac{1}{n} \sum_{i=1}^n E[X_i].
+\]
+It follows that:
+\[
+E[\bar{X}] = \frac{1}{n} \cdot n \cdot \theta = \theta.
+\]
+Thus, \(\bar{X}\) is an unbiased estimator of \(\theta\).
+
+(b) The variance of \(X\) for the exponential distribution is:
+\[
+\text{Var}(X) = \theta^2.
+\]
+The variance of the sample mean is:
+\[
+\text{Var}(\bar{X}) = \text{Var}\left(\frac{1}{n} \sum_{i=1}^n X_i\right).
+\]
+Using the properties of variances for independent random variables:
+\[
+\text{Var}(\bar{X}) = \frac{1}{n^2} \sum_{i=1}^n \text{Var}(X_i).
+\]
+Since \(\text{Var}(X_i) = \theta^2\):
+\[
+\text{Var}(\bar{X}) = \frac{1}{n^2} \cdot n \cdot \theta^2 = \frac{\theta^2}{n}.
+\]
+
+(c) Given the sample values: \(3.5, 8.1, 0.9, 4.4, 0.5\),
+the sample mean is:
+\[
+\bar{X} = \frac{1}{5} \sum_{i=1}^5 X_i = \frac{3.5 + 8.1 + 0.9 + 4.4 + 0.5}{5} = 3.48.
+\]
+Thus, the estimate of \(\theta\) is:
+\[
+\hat{\theta} = \bar{X} = 3.48.
+\]
+
+\vspace{1em}
+
+**6.4-13** 
+
+(a) For a uniform distribution on the interval \((\theta - 1, \theta + 1)\), the mean is:
+\[
+E[X] = \frac{(\theta - 1) + (\theta + 1)}{2} = \theta.
+\]
+The sample mean is:
+\[
+\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i.
+\]
+By the method of moments, equating the population mean to the sample mean:
+\[
+\hat{\theta}_{\text{MOM}} = \bar{X}.
+\]
+
+(b) To check whether \(\hat{\theta}_{\text{MOM}}\) is unbiased, compute:
+\[
+E[\hat{\theta}_{\text{MOM}}] = E[\bar{X}].
+\]
+Since \(\bar{X}\) is an unbiased estimator of \(E[X]\) and \(E[X] = \theta\), we have:
+\[
+E[\hat{\theta}_{\text{MOM}}] = \theta.
+\]
+Thus, \(\hat{\theta}_{\text{MOM}}\) is an unbiased estimator of \(\theta\).
+
+(c) Given the sample: \(6.61, 7.70, 6.98, 8.36, 7.26\),
+the sample mean is:
+\[
+\bar{X} = \frac{1}{5} \sum_{i=1}^5 X_i = \frac{6.61 + 7.70 + 6.98 + 8.36 + 7.26}{5} = 7.382.
+\]
+Using the method-of-moments estimator:
+\[
+\hat{\theta}_{\text{MOM}} = \bar{X} = 7.382.
+\]
+
+\vspace{1em}
+
+**6.4-17** 
+
+(b) The expectation \(E[X]\) is:
+\[
+E[X] = \frac{\theta}{2}.
+\]
+By the method of moments, equating \(E[X]\) to the sample mean \(\bar{X}\):
+\[
+\hat{\theta} = 2\bar{X}.
+\]
+
+(c) Given the observations:
+\[
+0.3206, 0.2408, 0.2577, 0.3557, 0.4188, 0.5601, 0.0240, 0.5422, 0.4532, 0.5592,
+\]
+the sample mean is:
+\[
+\bar{X} = \frac{1}{10} \sum_{i=1}^{10} X_i = 0.3732.
+\]
+Using the corrected method-of-moments estimator:
+\[
+\hat{\theta} = 2\bar{X} = 0.7465.
+\]
+
+\vspace{1em}
+
+**6.5-6** 
+
+(a) The least squares regression line is given by:
+\[
+\hat{y} = \alpha + \beta x,
+\]
+where:
+\[
+\beta = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}, \quad \alpha = \bar{y} - \beta \bar{x}.
+\]
+
+For the given data:
+\[
+x = [32, 23, 23, 23, 26, 30, 17, 20, 17, 18, 26, 16, 21, 24, 30],
+\]
+\[
+y = [28, 25, 24, 32, 31, 27, 23, 30, 18, 18, 32, 22, 28, 31, 26].
+\]
+
+The means of \(x\) and \(y\) are:
+\[
+\bar{x} = 23.867, \quad \bar{y} = 26.33.
+\]
+
+The slope (\(\beta\)) is:
+\[
+\beta = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2} = 0.5062.
+\]
+
+The intercept (\(\alpha\)) is:
+\[
+\alpha = \bar{y} = 26.33.
+\]
+
+Thus, the least squares regression line is:
+\[
+\hat{y} = 14.6578 + 0.5062x.
+\]  
+
+(c) The point estimates are:
+1. \(\alpha = 26.33\),
+2. \(\beta = 0.5062\).
+
+The residual variance (\(\sigma^2\)) is calculated as:
+\[
+\hat{\sigma}^2 = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2.
+\]
+Substituting the values:
+\[
+\hat{\sigma}^2 = 14.1258.
+\]
+
+\vspace{1em}
+
+**6.5-7** 
+
+(a) The least squares regression line is given by:
+\[
+\hat{y} = \alpha + \beta x,
+\]
+where:
+\[
+\beta = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}, \quad \alpha = \bar{y} - \beta \bar{x}.
+\]
+
+For the given data:
+\[
+x = [9, 4, 14, 12, 10, 5, 3, 17, 6, 7, 8, 15],
+\]
+\[
+y = [6, 6, 14, 12, 12, 7, 4, 18, 8, 8, 13, 13].
+\]
+
+The means of \(x\) and \(y\) are:
+\[
+\bar{x} = 9.0, \quad \bar{y} = 10.083.
+\]
+
+The slope (\(\beta\)) is:
+\[
+\beta = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2} = 0.8191.
+\]
+
+The intercept (\(\alpha\)) is:
+\[
+\alpha = \bar{y} = 10.083.
+\]
+
+Thus, the least squares regression line is:
+\[
+\hat{y} = 2.5753 + 0.8191x.
+\]
+
+(c) Point Estimates for \(\alpha\), \(\beta\), and \(\sigma^2\)
+
+1. **\(\alpha\) (Intercept)**: \(10.083\),
+2. **\(\beta\) (Slope)**: \(0.8191\).
+
+The Maximum Likelihood Estimator (MLE) for \(\sigma^2\) is given by:
+\[
+\hat{\sigma}^2 = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2.
+\]
+
+Substituting the values:
+\[
+\hat{\sigma}^2 = \frac{1}{12} \sum_{i=1}^{12} (y_i - \hat{y}_i)^2 = 3.294.
+\]
+
+Thus:
+\[
+\alpha = 10.083, \quad \beta = 0.8191, \quad \sigma^2 = 3.294.
+\]
+
+\vspace{1em}
+
+**7.1-1** 
+
+We are given:
+- Sample size: \(n = 16\),
+- Sample mean: \(\bar{x} = 73.8\),
+- Population variance: \(\sigma^2 = 25\), so \(\sigma = 5\).
+
+The 95% confidence interval for \(\mu\) is computed as:
+\[
+\bar{x} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}},
+\]
+where \(z_{\alpha/2} = 1.96\) for a 95% confidence level.
+
+1. **Compute the Standard Error**:
+\[
+\text{SE} = \frac{\sigma}{\sqrt{n}} = \frac{5}{\sqrt{16}} = 1.25.
+\]
+
+2. **Compute the Margin of Error**:
+\[
+\text{Margin of Error} = z_{\alpha/2} \cdot \text{SE} = 1.96 \cdot 1.25 = 2.45.
+\]
+
+3. **Compute the Confidence Interval**:
+\[
+\text{Confidence Interval} = \bar{x} \pm \text{Margin of Error}.
+\]
+\[
+\text{Confidence Interval} = 73.8 \pm 2.45 = (71.35, 76.25).
+\]
+
+The 95% confidence interval for \(\mu\) is:
+\[
+(71.35, 76.25).
+\]
+
+\vspace{1em}
+
+**7.1-4** 
+
+(a) The point estimate for \(\mu\) is the sample mean:
+\[
+\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i.
+\]
+
+Given data:
+\[
+x = [55.95, 56.54, 57.58, 55.13, 57.48, 56.06, 59.93, 58.30, 52.57, 58.46].
+\]
+
+The sample mean is:
+\[
+\bar{x} = 56.8.
+\]  
+
+(b) The formula for a 95% confidence interval is:
+\[
+\bar{x} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}},
+\]
+where:
+- \(\sigma^2 = 4 \implies \sigma = 2\),
+- \(n = 10\),
+- \(z_{\alpha/2} = 1.96\) for a 95% confidence level.
+
+#### **Step 1: Calculate the Standard Error**
+\[
+\text{SE} = \frac{\sigma}{\sqrt{n}} = \frac{2}{\sqrt{10}} = 0.632.
+\]
+
+#### **Step 2: Calculate the Margin of Error**
+\[
+\text{Margin of Error} = z_{\alpha/2} \cdot \text{SE} = 1.96 \cdot 0.632 = 1.239.
+\]
+
+#### **Step 3: Compute the Confidence Interval**
+\[
+\text{Confidence Interval} = \bar{x} \pm \text{Margin of Error}.
+\]
+\[
+\text{Confidence Interval} = 56.8 \pm 1.239 = (55.56, 58.04).
+\]  
+
+(c) The probability of a snack pack weighing less than 52 grams is:
+\[
+P(X < 52) = P\left(Z < \frac{52 - \mu}{\sigma}\right),
+\]
+where \(Z\) follows the standard normal distribution. Substituting \(\mu = 56.8\) and \(\sigma = 2\):
+\[
+Z = \frac{52 - 56.8}{2} = -2.4.
+\]
+
+Using the standard normal distribution table or a statistical tool:
+\[
+P(X < 52) = P(Z < -2.4) \approx 0.0082.
+\]
+
+---
+
+### Final Results
+1. **Point Estimate for \(\mu\):** \(\bar{x} = 56.8\),
+2. **95% Confidence Interval:** \((55.56, 58.04)\),
+3. **Probability \(P(X < 52)\):** \(0.0082\).
+
+\vspace{1em}
+
+**7.1-8** 
+
+(a) The point estimate for \(\mu\) is the sample mean:
+\[
+\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i.
+\]
+
+Given data:
+\[
+x = [37.4, 48.8, 46.9, 55.0, 44.0],
+\]
+and \(n = 5\). The sample mean is:
+\[
+\bar{x} = 46.42.
+\]  
+
+(b) Since the population variance (\(\sigma^2\)) is unknown, we use the \(t\)-distribution to calculate the confidence interval. The formula is:
+\[
+\bar{x} \pm t_{\alpha/2} \cdot \frac{s}{\sqrt{n}},
+\]
+where:
+- \(\bar{x} = 46.42\),
+- \(t_{\alpha/2}\) is the critical \(t\)-value for a 90% confidence level with \(n-1 = 4\) degrees of freedom,
+- \(s\) is the sample standard deviation,
+- \(n = 5\).
+
+#### Step 1: Calculate the Sample Standard Deviation
+The sample standard deviation is:
+\[
+s = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n-1}} = 6.4562.
+\]
+
+#### Step 2: Find the Critical \(t\)-Value
+For a 90% confidence level and \(n-1 = 4\) degrees of freedom:
+\[
+t_{\alpha/2} = 2.1318.
+\]
+
+#### Step 3: Compute the Margin of Error
+The margin of error is:
+\[
+\text{Margin of Error} = t_{\alpha/2} \cdot \frac{s}{\sqrt{n}} = 2.1318 \cdot \frac{6.4562}{\sqrt{5}} = 6.1552.
+\]
+
+#### Step 4: Compute the Confidence Interval
+\[
+\text{Confidence Interval} = \bar{x} \pm \text{Margin of Error}.
+\]
+\[
+\text{Confidence Interval} = 46.42 \pm 6.1552 = (40.26, 52.58).
+\]
+
+---
+
+### Final Results
+1. **Point Estimate for \(\mu\):** \(\bar{x} = 46.42\),
+2. **90% Confidence Interval for \(\mu\):** \((40.26, 52.58)\).
+
+\vspace{1em}
+
+**7.1-11** 
+
+We are given:
+- Sample size: \(n = 41\),
+- Sample mean: \(\bar{x} = 132\),
+- Sample variance: \(s^2 = 105 \implies s = \sqrt{105} = 10.247\),
+- Confidence level: 95%.
+
+The confidence interval formula is:
+\[
+\bar{x} \pm t_{\alpha/2} \cdot \frac{s}{\sqrt{n}},
+\]
+where:
+- \(t_{\alpha/2}\) is the critical \(t\)-value with \(n-1 = 40\) degrees of freedom,
+- \(s\) is the sample standard deviation,
+- \(n\) is the sample size.
+
+#### Step 1: Calculate the Standard Error
+\[
+\text{SE} = \frac{s}{\sqrt{n}} = \frac{10.247}{\sqrt{41}} = 1.6003.
+\]
+
+#### Step 2: Find the Critical \(t\)-Value
+For a 95% confidence level and \(n-1 = 40\) degrees of freedom:
+\[
+t_{\alpha/2} = 2.0211.
+\]
+
+#### Step 3: Compute the Confidence Interval
+\[
+\text{Confidence Interval} = \bar{x} \pm t_{\alpha/2} \cdot \text{SE}.
+\]
+Substitute the values:
+\[
+\text{Confidence Interval} = 132 \pm 2.0211 \cdot 1.6003 = (128.77, 135.23).
+\]
+
+---
+
+### Final Answer:
+The 95% confidence interval for the population mean is:
+\[
+(128.77, 135.23).
+\]
+
+\vspace{1em}
+
+**7.1-16** 
+
+#### Step 1: Rewrite the Probability
+Using symmetry, the given probability can be rewritten as:
+\[
+P(-1 < \mu - \bar{X} < 1) = 0.90.
+\]
+Since \(\bar{X}\) is the mean of a random sample of size \(n\) from \(N(\mu, 9)\), we know:
+\[
+\mu - \bar{X} \sim N(0, \sigma_{\bar{X}}), \quad \text{where } \sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} = \frac{3}{\sqrt{n}}.
+\]
+
+Thus:
+\[
+P(-1 < \mu - \bar{X} < 1) = P\left(-\frac{1}{\sigma_{\bar{X}}} < Z < \frac{1}{\sigma_{\bar{X}}}\right),
+\]
+where \(Z \sim N(0, 1)\).
+
+---
+
+#### Step 2: Find the Critical \(Z\)-Value
+Let:
+\[
+z = \frac{1}{\sigma_{\bar{X}}} = \frac{\sqrt{n}}{3}.
+\]
+
+We need:
+\[
+P(-z < Z < z) = 0.90.
+\]
+From the standard normal table:
+\[
+P(-z < Z < z) = 2P(Z < z) - 1 = 0.90.
+\]
+
+Solve for \(P(Z < z)\):
+\[
+P(Z < z) = 0.95.
+\]
+
+From the inverse of the standard normal distribution:
+\[
+z = \Phi^{-1}(0.95) \approx 1.645.
+\]
+
+---
+
+#### Step 3: Solve for \(n\)
+Substitute \(z = \frac{\sqrt{n}}{3}\):
+\[
+1.645 = \frac{\sqrt{n}}{3}.
+\]
+
+\[
+\sqrt{n} = 1.645 \cdot 3 = 4.935.
+\]
+
+Square both sides to find \(n\):
+\[
+n = 4.935^2 \approx 24.36.
+\]
+
+Since \(n\) must be an integer:
+\[
+n = 25.
+\]
